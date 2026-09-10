@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reports | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/reports.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Admin Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="users.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Users</span>
+            </a>
+
+            <a href="upload.html" class="nav-item">
+                <span class="nav-icon">↑</span>
+                <span>Upload Materials</span>
+            </a>
+
+            <a href="processing.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Material Processing</span>
+            </a>
+
+            <a href="review.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Quiz Review</span>
+                <span class="nav-badge">8</span>
+            </a>
+
+            <a href="reports.html" class="nav-item active">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">●</span>
+                <span>Profile</span>
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="top-header">
+
+            <div>
+                <h1>Reports & Analytics</h1>
+                <p>Monitor platform performance and learning outcomes</p>
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="notification-btn" id="notificationBtn">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="admin-user">
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Admin User</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Report Controls -->
+
+        <section class="report-controls">
+
+            <div>
+
+                <h2>Platform Report</h2>
+
+                <p>
+                    View learning and competency performance
+                </p>
+
+            </div>
+
+
+            <div class="control-actions">
+
+                <select id="periodFilter">
+
+                    <option value="month">
+                        This Month
+                    </option>
+
+                    <option value="week">
+                        This Week
+                    </option>
+
+                    <option value="quarter">
+                        This Quarter
+                    </option>
+
+                    <option value="year">
+                        This Year
+                    </option>
+
+                </select>
+
+
+                <button
+                    class="export-btn"
+                    id="exportBtn"
+                >
+                    ↓ Export Report
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Main Stats -->
+
+        <section class="report-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ♙
+                </div>
+
+                <div>
+                    <span>Total Users</span>
+                    <strong>248</strong>
+                    <small>+12 this month</small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Active Learners</span>
+                    <strong>182</strong>
+                    <small>73% of users</small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon purple">
+                    ◈
+                </div>
+
+                <div>
+                    <span>Courses Completed</span>
+                    <strong>426</strong>
+                    <small>+18% this month</small>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ★
+                </div>
+
+                <div>
+                    <span>Average Quiz Score</span>
+                    <strong>78%</strong>
+                    <small>+4% this month</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Charts Row -->
+
+        <section class="charts-grid">
+
+            <!-- Learning Activity -->
+
+            <div class="report-card large-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Learning Activity</h2>
+                        <p>Weekly learner activity</p>
+                    </div>
+
+                    <span class="card-label">
+                        Last 7 Days
+                    </span>
+
+                </div>
+
+
+                <div class="bar-chart">
+
+                    <div class="bar-column">
+                        <div class="bar-value">42</div>
+                        <div class="bar" style="height: 65%;"></div>
+                        <span>Mon</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div class="bar-value">58</div>
+                        <div class="bar" style="height: 82%;"></div>
+                        <span>Tue</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div class="bar-value">47</div>
+                        <div class="bar" style="height: 70%;"></div>
+                        <span>Wed</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div class="bar-value">71</div>
+                        <div class="bar" style="height: 95%;"></div>
+                        <span>Thu</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div class="bar-value">63</div>
+                        <div class="bar" style="height: 87%;"></div>
+                        <span>Fri</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div class="bar-value">35</div>
+                        <div class="bar" style="height: 52%;"></div>
+                        <span>Sat</span>
+                    </div>
+
+                    <div class="bar-column">
+                        <div class="bar-value">29</div>
+                        <div class="bar" style="height: 43%;"></div>
+                        <span>Sun</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- User Distribution -->
+
+            <div class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>User Distribution</h2>
+                        <p>Users by role</p>
+                    </div>
+
+                </div>
+
+
+                <div class="donut-area">
+
+                    <div class="donut">
+
+                        <div class="donut-center">
+                            <strong>248</strong>
+                            <span>Total</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="legend">
+
+                    <div>
+                        <span class="legend-dot employee"></span>
+                        <span>Employees</span>
+                        <strong>230</strong>
+                    </div>
+
+                    <div>
+                        <span class="legend-dot admin"></span>
+                        <span>Administrators</span>
+                        <strong>18</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Performance Section -->
+
+        <section class="performance-grid">
+
+
+            <!-- Competency Performance -->
+
+            <div class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Competency Performance</h2>
+                        <p>Average competency scores</p>
+                    </div>
+
+                </div>
+
+
+                <div class="competency-list">
+
+
+                    <div class="competency-row">
+
+                        <div class="competency-name">
+                            <span>Data Analysis</span>
+                            <strong>85%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div
+                                class="progress-fill"
+                                style="width: 85%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-row">
+
+                        <div class="competency-name">
+                            <span>Statistics</span>
+                            <strong>82%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div
+                                class="progress-fill"
+                                style="width: 82%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-row">
+
+                        <div class="competency-name">
+                            <span>Communication</span>
+                            <strong>55%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div
+                                class="progress-fill"
+                                style="width: 55%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-row">
+
+                        <div class="competency-name">
+                            <span>Data Quality</span>
+                            <strong>48%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div
+                                class="progress-fill"
+                                style="width: 48%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-row">
+
+                        <div class="competency-name">
+                            <span>Data Management</span>
+                            <strong>58%</strong>
+                        </div>
+
+                        <div class="progress">
+                            <div
+                                class="progress-fill"
+                                style="width: 58%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quiz Performance -->
+
+            <div class="report-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Quiz Performance</h2>
+                        <p>Quiz completion and scores</p>
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-performance">
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-icon">
+                            ✓
+                        </div>
+
+                        <div class="performance-info">
+
+                            <span>Quizzes Completed</span>
+
+                            <strong>426</strong>
+
+                        </div>
+
+                        <span class="performance-change">
+                            +12%
+                        </span>
+
+                    </div>
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-icon">
+                            ★
+                        </div>
+
+                        <div class="performance-info">
+
+                            <span>Average Score</span>
+
+                            <strong>78%</strong>
+
+                        </div>
+
+                        <span class="performance-change">
+                            +4%
+                        </span>
+
+                    </div>
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-icon">
+                            ↻
+                        </div>
+
+                        <div class="performance-info">
+
+                            <span>Attempts</span>
+
+                            <strong>612</strong>
+
+                        </div>
+
+                        <span class="performance-change">
+                            +9%
+                        </span>
+
+                    </div>
+
+
+                    <div class="performance-item">
+
+                        <div class="performance-icon">
+                            !
+                        </div>
+
+                        <div class="performance-info">
+
+                            <span>Pending Reviews</span>
+
+                            <strong>8</strong>
+
+                        </div>
+
+                        <span class="performance-change warning">
+                            Action
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Material Statistics -->
+
+        <section class="report-card material-card">
+
+            <div class="card-header">
+
+                <div>
+                    <h2>Learning Material Statistics</h2>
+                    <p>Material distribution across categories</p>
+                </div>
+
+                <a href="processing.html" class="view-link">
+                    View Processing →
+                </a>
+
+            </div>
+
+
+            <div class="material-table">
+
+                <div class="table-header">
+
+                    <span>Category</span>
+                    <span>Total Materials</span>
+                    <span>Completed</span>
+                    <span>Processing</span>
+                    <span>Usage</span>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Data Analysis</span>
+                    <strong>8</strong>
+                    <strong>7</strong>
+                    <span>1</span>
+                    <div class="usage">
+                        <div class="usage-bar">
+                            <div style="width: 88%;"></div>
+                        </div>
+                        <span>88%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Statistics</span>
+                    <strong>7</strong>
+                    <strong>6</strong>
+                    <span>1</span>
+                    <div class="usage">
+                        <div class="usage-bar">
+                            <div style="width: 82%;"></div>
+                        </div>
+                        <span>82%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Data Quality</span>
+                    <strong>6</strong>
+                    <strong>5</strong>
+                    <span>1</span>
+                    <div class="usage">
+                        <div class="usage-bar">
+                            <div style="width: 76%;"></div>
+                        </div>
+                        <span>76%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Data Management</span>
+                    <strong>5</strong>
+                    <strong>4</strong>
+                    <span>1</span>
+                    <div class="usage">
+                        <div class="usage-bar">
+                            <div style="width: 68%;"></div>
+                        </div>
+                        <span>68%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Communication</span>
+                    <strong>5</strong>
+                    <strong>4</strong>
+                    <span>1</span>
+                    <div class="usage">
+                        <div class="usage-bar">
+                            <div style="width: 61%;"></div>
+                        </div>
+                        <span>61%</span>
+                    </div>
+
+                </div>
+
+
+                <div class="table-row">
+
+                    <span>Research Methods</span>
+                    <strong>5</strong>
+                    <strong>4</strong>
+                    <span>1</span>
+                    <div class="usage">
+                        <div class="usage-bar">
+                            <div style="width: 72%;"></div>
+                        </div>
+                        <span>72%</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Report Footer -->
+
+        <footer class="reports-footer">
+
+            <p>
+                Official Statistical Learning Platform • Admin Portal
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<script src="../js/reports.js"></script>
+
+</body>
+</html>

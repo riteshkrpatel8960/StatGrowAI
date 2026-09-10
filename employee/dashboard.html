@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Dashboard | AI Learning Platform</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/dashboard.css">
+```
+
+</head>
+
+<body>
+
+```
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Employee Portal</span>
+            </div>
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="competencies.html" class="nav-item">
+                <span>◈</span>
+                Competencies
+            </a>
+
+            <a href="assessments.html" class="nav-item">
+                <span>▣</span>
+                Assessments
+            </a>
+
+            <a href="materials.html" class="nav-item">
+                <span>▤</span>
+                Learning Materials
+            </a>
+
+            <a href="quizzes.html" class="nav-item">
+                <span>?</span>
+                Quizzes
+            </a>
+
+            <a href="recommendations.html" class="nav-item">
+                <span>★</span>
+                Recommendations
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="profile.html" class="nav-item">
+                <span>●</span>
+                Profile
+            </a>
+
+            <a href="../index.html" class="nav-item logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Top Header -->
+
+        <header class="top-header">
+
+            <div>
+                <h1>Dashboard</h1>
+                <p>Your personalized learning overview</p>
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="notification-btn">
+                    🔔
+                </button>
+
+                <div class="user-profile">
+
+                    <div class="user-avatar">
+                        P
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Prabhat Raj</strong>
+                        <span>Employee</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Welcome Section -->
+
+        <section class="welcome-section">
+
+            <div>
+
+                <h2>Welcome back, Prabhat! 👋</h2>
+
+                <p>
+                    Continue your learning journey and improve your competencies.
+                </p>
+
+            </div>
+
+            <button class="continue-learning-btn">
+                Continue Learning
+            </button>
+
+        </section>
+
+
+        <!-- Statistics Cards -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon competency-icon">
+                    ◈
+                </div>
+
+                <div>
+                    <p>Overall Competency</p>
+                    <h3>72%</h3>
+                    <span class="positive">↑ 5% this month</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon progress-icon">
+                    ◉
+                </div>
+
+                <div>
+                    <p>Learning Progress</p>
+                    <h3>65%</h3>
+                    <span class="positive">↑ 8% this month</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon quiz-icon">
+                    ?
+                </div>
+
+                <div>
+                    <p>Quizzes Completed</p>
+                    <h3>8</h3>
+                    <span>12 total quizzes</span>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon gap-icon">
+                    !
+                </div>
+
+                <div>
+                    <p>Skill Gaps</p>
+                    <h3>3</h3>
+                    <span class="warning">Needs attention</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Main Dashboard Grid -->
+
+        <section class="dashboard-grid">
+
+
+            <!-- Competency Overview -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Competency Overview</h3>
+                        <p>Your current competency performance</p>
+                    </div>
+
+                    <a href="competencies.html">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="competency-list">
+
+                    <div class="competency-item">
+
+                        <div class="competency-info">
+                            <span>Data Analysis</span>
+                            <strong>85%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 85%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-item">
+
+                        <div class="competency-info">
+                            <span>Statistics</span>
+                            <strong>82%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 82%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-item">
+
+                        <div class="competency-info">
+                            <span>Communication</span>
+                            <strong>55%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 55%;"></div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="competency-item">
+
+                        <div class="competency-info">
+                            <span>Data Quality</span>
+                            <strong>48%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 48%;"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Learning Progress -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Learning Progress</h3>
+                        <p>Your course completion</p>
+                    </div>
+
+                    <a href="materials.html">
+                        View Materials
+                    </a>
+
+                </div>
+
+
+                <div class="learning-progress">
+
+                    <div class="progress-circle">
+
+                        <div class="circle-content">
+                            <strong>65%</strong>
+                            <span>Completed</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="learning-details">
+
+                        <div>
+                            <span>Completed</span>
+                            <strong>6 Courses</strong>
+                        </div>
+
+                        <div>
+                            <span>In Progress</span>
+                            <strong>3 Courses</strong>
+                        </div>
+
+                        <div>
+                            <span>Remaining</span>
+                            <strong>3 Courses</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom Section -->
+
+        <section class="bottom-grid">
+
+
+            <!-- Skill Gaps -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Skill Gaps</h3>
+                        <p>Areas that need improvement</p>
+                    </div>
+
+                </div>
+
+
+                <div class="skill-gap-list">
+
+                    <div class="skill-gap">
+
+                        <div class="gap-content">
+                            <strong>Data Quality</strong>
+                            <span>Current score: 48%</span>
+                        </div>
+
+                        <button>
+                            Improve
+                        </button>
+
+                    </div>
+
+
+                    <div class="skill-gap">
+
+                        <div class="gap-content">
+                            <strong>Communication</strong>
+                            <span>Current score: 55%</span>
+                        </div>
+
+                        <button>
+                            Improve
+                        </button>
+
+                    </div>
+
+
+                    <div class="skill-gap">
+
+                        <div class="gap-content">
+                            <strong>Data Management</strong>
+                            <span>Current score: 58%</span>
+                        </div>
+
+                        <button>
+                            Improve
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Recommendations -->
+
+            <div class="dashboard-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h3>Recommended For You</h3>
+                        <p>Based on your competency gaps</p>
+                    </div>
+
+                    <a href="recommendations.html">
+                        View All
+                    </a>
+
+                </div>
+
+
+                <div class="recommendation-list">
+
+                    <div class="recommendation">
+
+                        <div class="recommendation-icon">
+                            📚
+                        </div>
+
+                        <div class="recommendation-content">
+
+                            <strong>
+                                Data Quality Fundamentals
+                            </strong>
+
+                            <span>
+                                Improve your Data Quality skills
+                            </span>
+
+                        </div>
+
+                        <button>
+                            Start
+                        </button>
+
+                    </div>
+
+
+                    <div class="recommendation">
+
+                        <div class="recommendation-icon">
+                            📊
+                        </div>
+
+                        <div class="recommendation-content">
+
+                            <strong>
+                                Advanced Data Management
+                            </strong>
+
+                            <span>
+                                Recommended for your role
+                            </span>
+
+                        </div>
+
+                        <button>
+                            Start
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/dashboard.js"></script>
+```
+
+</body>
+</html>

@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Review | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/review.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Admin Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="users.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Users</span>
+            </a>
+
+            <a href="upload.html" class="nav-item">
+                <span class="nav-icon">↑</span>
+                <span>Upload Materials</span>
+            </a>
+
+            <a href="processing.html" class="nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Material Processing</span>
+            </a>
+
+            <a href="review.html" class="nav-item active">
+                <span class="nav-icon">✓</span>
+                <span>Quiz Review</span>
+                <span class="nav-badge">8</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">●</span>
+                <span>Profile</span>
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="top-header">
+
+            <div>
+                <h1>Quiz Review</h1>
+                <p>Review and approve AI-generated quizzes</p>
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="notification-btn" id="notificationBtn">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="admin-user">
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Admin User</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Review Stats -->
+
+        <section class="review-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    !
+                </div>
+
+                <div>
+                    <span>Pending Review</span>
+                    <strong id="pendingCount">8</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Approved</span>
+                    <strong>42</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    ×
+                </div>
+
+                <div>
+                    <span>Rejected</span>
+                    <strong>5</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    AI
+                </div>
+
+                <div>
+                    <span>AI Generated</span>
+                    <strong>55</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Review Info -->
+
+        <section class="review-info-banner">
+
+            <div class="banner-icon">
+                AI
+            </div>
+
+            <div>
+
+                <h2>AI-Generated Quiz Review</h2>
+
+                <p>
+                    Review each question carefully before publishing.
+                    You can approve the complete quiz or reject it if
+                    changes are required.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- Filters -->
+
+        <section class="quiz-review-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Quizzes Waiting for Review</h2>
+                    <p>Review generated quizzes before publishing</p>
+                </div>
+
+            </div>
+
+
+            <div class="filters">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search quiz..."
+                    >
+
+                </div>
+
+
+                <select id="difficultyFilter">
+
+                    <option value="all">
+                        All Difficulty
+                    </option>
+
+                    <option value="easy">
+                        Easy
+                    </option>
+
+                    <option value="medium">
+                        Medium
+                    </option>
+
+                    <option value="hard">
+                        Hard
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Quiz List -->
+
+            <div class="quiz-list" id="quizList">
+
+
+                <!-- Quiz 1 -->
+
+                <div
+                    class="quiz-item"
+                    data-name="Data Quality Fundamentals"
+                    data-difficulty="medium"
+                >
+
+                    <div class="quiz-main">
+
+                        <div class="quiz-icon">
+                            AI
+                        </div>
+
+                        <div class="quiz-details">
+
+                            <h3>
+                                Data Quality Fundamentals
+                            </h3>
+
+                            <p>
+                                Generated from Data Quality Guide
+                            </p>
+
+                            <div class="quiz-meta">
+
+                                <span>
+                                    10 Questions
+                                </span>
+
+                                <span>
+                                    Medium
+                                </span>
+
+                                <span>
+                                    Data Quality
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quiz-date">
+                        Today, 10:15 AM
+                    </div>
+
+
+                    <button
+                        class="review-btn"
+                        data-quiz="Data Quality Fundamentals"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+
+                <!-- Quiz 2 -->
+
+                <div
+                    class="quiz-item"
+                    data-name="Statistics Fundamentals"
+                    data-difficulty="easy"
+                >
+
+                    <div class="quiz-main">
+
+                        <div class="quiz-icon">
+                            AI
+                        </div>
+
+                        <div class="quiz-details">
+
+                            <h3>
+                                Statistics Fundamentals
+                            </h3>
+
+                            <p>
+                                Generated from Statistics Fundamentals
+                            </p>
+
+                            <div class="quiz-meta">
+
+                                <span>
+                                    15 Questions
+                                </span>
+
+                                <span>
+                                    Easy
+                                </span>
+
+                                <span>
+                                    Statistics
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quiz-date">
+                        Today, 09:40 AM
+                    </div>
+
+
+                    <button
+                        class="review-btn"
+                        data-quiz="Statistics Fundamentals"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+
+                <!-- Quiz 3 -->
+
+                <div
+                    class="quiz-item"
+                    data-name="Advanced Data Management"
+                    data-difficulty="hard"
+                >
+
+                    <div class="quiz-main">
+
+                        <div class="quiz-icon">
+                            AI
+                        </div>
+
+                        <div class="quiz-details">
+
+                            <h3>
+                                Advanced Data Management
+                            </h3>
+
+                            <p>
+                                Generated from Data Management Manual
+                            </p>
+
+                            <div class="quiz-meta">
+
+                                <span>
+                                    12 Questions
+                                </span>
+
+                                <span>
+                                    Hard
+                                </span>
+
+                                <span>
+                                    Data Management
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quiz-date">
+                        Yesterday, 05:20 PM
+                    </div>
+
+
+                    <button
+                        class="review-btn"
+                        data-quiz="Advanced Data Management"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+
+                <!-- Quiz 4 -->
+
+                <div
+                    class="quiz-item"
+                    data-name="Statistical Communication"
+                    data-difficulty="medium"
+                >
+
+                    <div class="quiz-main">
+
+                        <div class="quiz-icon">
+                            AI
+                        </div>
+
+                        <div class="quiz-details">
+
+                            <h3>
+                                Statistical Communication
+                            </h3>
+
+                            <p>
+                                Generated from Communication Guide
+                            </p>
+
+                            <div class="quiz-meta">
+
+                                <span>
+                                    10 Questions
+                                </span>
+
+                                <span>
+                                    Medium
+                                </span>
+
+                                <span>
+                                    Communication
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quiz-date">
+                        Yesterday, 03:45 PM
+                    </div>
+
+
+                    <button
+                        class="review-btn"
+                        data-quiz="Statistical Communication"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+
+                <!-- Quiz 5 -->
+
+                <div
+                    class="quiz-item"
+                    data-name="Research Methods"
+                    data-difficulty="hard"
+                >
+
+                    <div class="quiz-main">
+
+                        <div class="quiz-icon">
+                            AI
+                        </div>
+
+                        <div class="quiz-details">
+
+                            <h3>
+                                Research Methods
+                            </h3>
+
+                            <p>
+                                Generated from Research Methods Handbook
+                            </p>
+
+                            <div class="quiz-meta">
+
+                                <span>
+                                    15 Questions
+                                </span>
+
+                                <span>
+                                    Hard
+                                </span>
+
+                                <span>
+                                    Research
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="quiz-date">
+                        2 days ago
+                    </div>
+
+
+                    <button
+                        class="review-btn"
+                        data-quiz="Research Methods"
+                    >
+                        Review
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="noResults" class="no-results">
+                No quizzes found.
+            </div>
+
+        </section>
+
+
+        <footer class="review-footer">
+
+            <p>
+                Official Statistical Learning Platform • Admin Portal
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Review Modal -->
+
+<div class="modal-overlay" id="reviewModal">
+
+    <div class="review-modal">
+
+        <button class="modal-close" id="modalClose">
+            ×
+        </button>
+
+
+        <div class="modal-header">
+
+            <div class="modal-quiz-icon">
+                AI
+            </div>
+
+            <div>
+
+                <h2 id="modalQuizTitle">
+                    Data Quality Fundamentals
+                </h2>
+
+                <p>
+                    AI Generated Quiz • 10 Questions
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- Question 1 -->
+
+        <div class="question-card">
+
+            <div class="question-top">
+
+                <span>
+                    Question 1
+                </span>
+
+                <span class="difficulty medium">
+                    Medium
+                </span>
+
+            </div>
+
+            <h3>
+                Which of the following is an important
+                characteristic of high-quality data?
+            </h3>
+
+
+            <div class="options">
+
+                <label>
+                    <input type="radio" name="question1">
+                    Accuracy
+                </label>
+
+                <label>
+                    <input type="radio" name="question1">
+                    Randomness
+                </label>
+
+                <label>
+                    <input type="radio" name="question1">
+                    Complexity
+                </label>
+
+                <label>
+                    <input type="radio" name="question1">
+                    Size
+                </label>
+
+            </div>
+
+
+            <div class="correct-answer">
+                ✓ Correct Answer: Accuracy
+            </div>
+
+        </div>
+
+
+        <!-- Question 2 -->
+
+        <div class="question-card">
+
+            <div class="question-top">
+
+                <span>
+                    Question 2
+                </span>
+
+                <span class="difficulty easy">
+                    Easy
+                </span>
+
+            </div>
+
+            <h3>
+                What does data completeness mean?
+            </h3>
+
+
+            <div class="options">
+
+                <label>
+                    <input type="radio" name="question2">
+                    Data contains all required values
+                </label>
+
+                <label>
+                    <input type="radio" name="question2">
+                    Data is encrypted
+                </label>
+
+                <label>
+                    <input type="radio" name="question2">
+                    Data is stored online
+                </label>
+
+                <label>
+                    <input type="radio" name="question2">
+                    Data is duplicated
+                </label>
+
+            </div>
+
+
+            <div class="correct-answer">
+                ✓ Correct Answer: Data contains all required values
+            </div>
+
+        </div>
+
+
+        <!-- Question 3 -->
+
+        <div class="question-card">
+
+            <div class="question-top">
+
+                <span>
+                    Question 3
+                </span>
+
+                <span class="difficulty hard">
+                    Hard
+                </span>
+
+            </div>
+
+            <h3>
+                Which technique can be used to identify
+                duplicate records in a dataset?
+            </h3>
+
+
+            <div class="options">
+
+                <label>
+                    <input type="radio" name="question3">
+                    Duplicate detection
+                </label>
+
+                <label>
+                    <input type="radio" name="question3">
+                    Random sampling
+                </label>
+
+                <label>
+                    <input type="radio" name="question3">
+                    Data visualization only
+                </label>
+
+                <label>
+                    <input type="radio" name="question3">
+                    File compression
+                </label>
+
+            </div>
+
+
+            <div class="correct-answer">
+                ✓ Correct Answer: Duplicate detection
+            </div>
+
+        </div>
+
+
+        <!-- Review Actions -->
+
+        <div class="review-actions">
+
+            <button
+                class="reject-btn"
+                id="rejectBtn"
+            >
+                ✕ Reject Quiz
+            </button>
+
+            <button
+                class="approve-btn"
+                id="approveBtn"
+            >
+                ✓ Approve Quiz
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="../js/review.js"></script>
+
+</body>
+</html>

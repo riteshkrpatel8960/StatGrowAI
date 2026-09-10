@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Competencies | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/competencies.css">
+</head>
+
+<body>
+
+    <div class="dashboard-layout">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="sidebar-logo">
+                <div class="logo-box">AI</div>
+
+                <div>
+                    <h2>AI Learning</h2>
+                    <span>Employee Portal</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html">
+                    <span>▣</span>
+                    Dashboard
+                </a>
+
+                <a href="competencies.html" class="active">
+                    <span>◆</span>
+                    Competencies
+                </a>
+
+                <a href="assessments.html">
+                    <span>✓</span>
+                    Assessments
+                </a>
+
+                <a href="materials.html">
+                    <span>▤</span>
+                    Learning Materials
+                </a>
+
+                <a href="quizzes.html">
+                    <span>?</span>
+                    Quizzes
+                </a>
+
+                <a href="recommendations.html">
+                    <span>★</span>
+                    Recommendations
+                </a>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <a href="#">
+                    <span>◉</span>
+                    Profile
+                </a>
+
+                <a href="../index.html" id="logoutBtn">
+                    <span>↪</span>
+                    Logout
+                </a>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="top-header">
+
+                <div>
+                    <h1>Competencies</h1>
+                    <p>Track your skills and competency development</p>
+                </div>
+
+                <div class="header-user">
+
+                    <div class="notification">
+                        🔔
+                    </div>
+
+                    <div class="user-avatar">
+                        P
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Prabhat Raj</strong>
+                        <span>Employee</span>
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Page Content -->
+            <section class="competencies-page">
+
+
+                <!-- Overall Competency -->
+                <div class="overall-card">
+
+                    <div class="overall-left">
+
+                        <h2>Overall Competency</h2>
+
+                        <p>
+                            Your overall competency score based on
+                            assessments and learning activities.
+                        </p>
+
+                        <span class="status-badge">
+                            Good Progress
+                        </span>
+
+                    </div>
+
+
+                    <div class="score-circle">
+
+                        <div class="score-inner">
+                            <strong>72%</strong>
+                            <span>Overall Score</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Summary -->
+                <div class="section-title">
+                    <h2>Competency Summary</h2>
+                    <p>Overview of your strongest and weakest areas.</p>
+                </div>
+
+
+                <div class="summary-grid">
+
+                    <!-- Strong Areas -->
+                    <div class="summary-card strong-card">
+
+                        <div class="summary-header">
+                            <div class="summary-icon">↑</div>
+
+                            <div>
+                                <h3>Strong Areas</h3>
+                                <span>Performing well</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="item-info">
+                                <span>Data Analysis</span>
+                                <strong>85%</strong>
+                            </div>
+
+                            <div class="mini-progress">
+                                <div style="width: 85%;"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <div class="item-info">
+                                <span>Statistics</span>
+                                <strong>82%</strong>
+                            </div>
+
+                            <div class="mini-progress">
+                                <div style="width: 82%;"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Improvement Areas -->
+                    <div class="summary-card improvement-card">
+
+                        <div class="summary-header">
+                            <div class="summary-icon">!</div>
+
+                            <div>
+                                <h3>Needs Improvement</h3>
+                                <span>Needs attention</span>
+                            </div>
+                        </div>
+
+                        <div class="summary-item">
+
+                            <div class="item-info">
+                                <span>Data Quality</span>
+                                <strong>48%</strong>
+                            </div>
+
+                            <div class="mini-progress">
+                                <div style="width: 48%;"></div>
+                            </div>
+
+                        </div>
+
+
+                        <div class="summary-item">
+
+                            <div class="item-info">
+                                <span>Communication</span>
+                                <strong>55%</strong>
+                            </div>
+
+                            <div class="mini-progress">
+                                <div style="width: 55%;"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Competency Performance -->
+                <div class="section-title performance-title">
+
+                    <div>
+                        <h2>Competency Performance</h2>
+                        <p>Detailed view of your current competency levels.</p>
+                    </div>
+
+                    <button class="recommend-btn" id="recommendBtn">
+                        View Recommendations
+                    </button>
+
+                </div>
+
+
+                <div class="competency-list">
+
+
+                    <!-- Data Analysis -->
+                    <div class="competency-card">
+
+                        <div class="competency-top">
+
+                            <div class="competency-name">
+
+                                <div class="competency-icon">
+                                    DA
+                                </div>
+
+                                <div>
+                                    <h3>Data Analysis</h3>
+                                    <p>Ability to analyze and interpret data.</p>
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+                                85%
+                            </div>
+
+                        </div>
+
+                        <div class="progress-container">
+
+                            <div class="progress-bar">
+                                <div class="progress-fill high"
+                                     style="width: 85%;">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="competency-footer">
+
+                            <span class="level high-text">
+                                Advanced
+                            </span>
+
+                            <span>
+                                Target: 80%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Statistics -->
+                    <div class="competency-card">
+
+                        <div class="competency-top">
+
+                            <div class="competency-name">
+
+                                <div class="competency-icon">
+                                    ST
+                                </div>
+
+                                <div>
+                                    <h3>Statistics</h3>
+                                    <p>Understanding statistical methods and concepts.</p>
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+                                82%
+                            </div>
+
+                        </div>
+
+                        <div class="progress-container">
+
+                            <div class="progress-bar">
+                                <div class="progress-fill high"
+                                     style="width: 82%;">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="competency-footer">
+
+                            <span class="level high-text">
+                                Advanced
+                            </span>
+
+                            <span>
+                                Target: 80%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Communication -->
+                    <div class="competency-card">
+
+                        <div class="competency-top">
+
+                            <div class="competency-name">
+
+                                <div class="competency-icon">
+                                    CO
+                                </div>
+
+                                <div>
+                                    <h3>Communication</h3>
+                                    <p>Ability to communicate statistical insights clearly.</p>
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+                                55%
+                            </div>
+
+                        </div>
+
+                        <div class="progress-container">
+
+                            <div class="progress-bar">
+                                <div class="progress-fill medium"
+                                     style="width: 55%;">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="competency-footer">
+
+                            <span class="level medium-text">
+                                Intermediate
+                            </span>
+
+                            <span>
+                                Target: 75%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Data Quality -->
+                    <div class="competency-card">
+
+                        <div class="competency-top">
+
+                            <div class="competency-name">
+
+                                <div class="competency-icon">
+                                    DQ
+                                </div>
+
+                                <div>
+                                    <h3>Data Quality</h3>
+                                    <p>Ability to maintain accurate and reliable data.</p>
+                                </div>
+
+                            </div>
+
+                            <div class="percentage">
+                                48%
+                            </div>
+
+                        </div>
+
+                        <div class="progress-container">
+
+                            <div class="progress-bar">
+                                <div class="progress-fill low"
+                                     style="width: 48%;">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="competency-footer">
+
+                            <span class="level low-text">
+                                Beginner
+                            </span>
+
+                            <span>
+                                Target: 75%
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+
+    <script src="../js/competencies.js"></script>
+
+</body>
+</html>

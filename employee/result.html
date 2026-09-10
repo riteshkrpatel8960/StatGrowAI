@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Result | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/result.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-box">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Employee Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="competencies.html">
+                <span>◆</span>
+                Competencies
+            </a>
+
+            <a href="assessments.html">
+                <span>✓</span>
+                Assessments
+            </a>
+
+            <a href="materials.html">
+                <span>▤</span>
+                Learning Materials
+            </a>
+
+            <a href="quizzes.html" class="active">
+                <span>?</span>
+                Quizzes
+            </a>
+
+            <a href="recommendations.html">
+                <span>★</span>
+                Recommendations
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <span>◉</span>
+                Profile
+            </a>
+
+            <a href="../index.html" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <div>
+                <h1>Quiz Result</h1>
+                <p>Review your quiz performance</p>
+            </div>
+
+            <div class="header-user">
+
+                <div class="notification">
+                    🔔
+                </div>
+
+                <div class="user-avatar">
+                    P
+                </div>
+
+                <div class="user-info">
+                    <strong>Prabhat Raj</strong>
+                    <span>Employee</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page -->
+        <section class="result-page">
+
+
+            <!-- Result Hero -->
+            <div class="result-card">
+
+                <div class="result-icon" id="resultIcon">
+                    ✓
+                </div>
+
+                <span class="result-label">
+                    Quiz Completed
+                </span>
+
+                <h2 id="resultTitle">
+                    Great Job!
+                </h2>
+
+                <p id="resultMessage">
+                    You have successfully completed the quiz.
+                </p>
+
+
+                <!-- Score Circle -->
+                <div class="result-circle">
+
+                    <div class="result-circle-inner">
+
+                        <strong id="scorePercentage">
+                            80%
+                        </strong>
+
+                        <span>
+                            Score
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="quiz-name">
+                    Data Quality Fundamentals
+                </div>
+
+            </div>
+
+
+            <!-- Performance Stats -->
+            <div class="performance-grid">
+
+                <div class="performance-card">
+
+                    <div class="performance-icon correct">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Correct Answers</span>
+
+                        <strong id="correctAnswers">
+                            8
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="performance-card">
+
+                    <div class="performance-icon wrong">
+                        ✕
+                    </div>
+
+                    <div>
+                        <span>Wrong Answers</span>
+
+                        <strong id="wrongAnswers">
+                            2
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="performance-card">
+
+                    <div class="performance-icon unanswered">
+                        —
+                    </div>
+
+                    <div>
+                        <span>Unanswered</span>
+
+                        <strong id="unansweredAnswers">
+                            0
+                        </strong>
+                    </div>
+
+                </div>
+
+
+                <div class="performance-card">
+
+                    <div class="performance-icon total">
+                        #
+                    </div>
+
+                    <div>
+                        <span>Total Questions</span>
+
+                        <strong id="totalQuestions">
+                            10
+                        </strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Performance Analysis -->
+            <div class="analysis-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Performance Analysis</h2>
+
+                        <p>
+                            Understand how you performed in this quiz.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-row">
+
+                    <div class="analysis-label">
+
+                        <span>Score</span>
+
+                        <strong id="analysisScore">
+                            80%
+                        </strong>
+
+                    </div>
+
+                    <div class="analysis-progress">
+
+                        <div
+                            id="analysisProgress"
+                            style="width: 80%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="analysis-message" id="analysisMessage">
+
+                    <strong>Good performance!</strong>
+
+                    <p>
+                        You have a good understanding of this topic.
+                        Continue learning to improve your competency.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Question Summary -->
+            <div class="summary-card">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Question Summary</h2>
+
+                        <p>
+                            Overview of your answers.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="question-summary">
+
+                    <div class="summary-item correct-item">
+
+                        <span class="summary-number">
+                            1
+                        </span>
+
+                        <span class="summary-text">
+                            Correct Answer
+                        </span>
+
+                        <span class="summary-status">
+                            ✓ Correct
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-item correct-item">
+
+                        <span class="summary-number">
+                            2
+                        </span>
+
+                        <span class="summary-text">
+                            Correct Answer
+                        </span>
+
+                        <span class="summary-status">
+                            ✓ Correct
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-item wrong-item">
+
+                        <span class="summary-number">
+                            3
+                        </span>
+
+                        <span class="summary-text">
+                            Incorrect Answer
+                        </span>
+
+                        <span class="summary-status">
+                            ✕ Wrong
+                        </span>
+
+                    </div>
+
+
+                    <div class="summary-item correct-item">
+
+                        <span class="summary-number">
+                            4
+                        </span>
+
+                        <span class="summary-text">
+                            Correct Answer
+                        </span>
+
+                        <span class="summary-status">
+                            ✓ Correct
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Actions -->
+            <div class="result-actions">
+
+                <button
+                    id="dashboardBtn"
+                    class="secondary-btn">
+                    ← Dashboard
+                </button>
+
+                <button
+                    id="quizzesBtn"
+                    class="secondary-btn">
+                    Back to Quizzes
+                </button>
+
+                <button
+                    id="retakeBtn"
+                    class="primary-btn">
+                    Retake Quiz
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/result.js"></script>
+
+</body>
+</html>

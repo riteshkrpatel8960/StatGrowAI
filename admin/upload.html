@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Materials | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/upload.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+
+                <div class="brand-logo">AI</div>
+
+                <div>
+                    <h2>AI Learning</h2>
+                    <span>Admin Portal</span>
+                </div>
+
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="users.html" class="nav-item">
+                    <span class="nav-icon">♙</span>
+                    <span>Users</span>
+                </a>
+
+                <a href="upload.html" class="nav-item active">
+                    <span class="nav-icon">↑</span>
+                    <span>Upload Materials</span>
+                </a>
+
+                <a href="processing.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Material Processing</span>
+                </a>
+
+                <a href="review.html" class="nav-item">
+                    <span class="nav-icon">✓</span>
+                    <span>Quiz Review</span>
+                    <span class="nav-badge">8</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Reports</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">●</span>
+                    <span>Profile</span>
+                </a>
+
+                <button class="logout-btn" id="logoutBtn">
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div>
+                    <h1>Upload Learning Materials</h1>
+                    <p>Add documents and learning resources to the platform</p>
+                </div>
+
+
+                <div class="header-right">
+
+                    <button class="notification-btn" id="notificationBtn">
+                        🔔
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="admin-user">
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+                        <div class="user-info">
+                            <strong>Admin User</strong>
+                            <span>Administrator</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- Upload Layout -->
+
+            <section class="upload-layout">
+
+
+                <!-- Upload Form -->
+
+                <div class="upload-card">
+
+                    <div class="card-title">
+
+                        <div class="title-icon">
+                            ↑
+                        </div>
+
+                        <div>
+                            <h2>Upload New Material</h2>
+
+                            <p>
+                                Provide the basic information and upload
+                                your learning material.
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <form id="uploadForm">
+
+
+                        <!-- Material Title -->
+
+                        <div class="form-group">
+
+                            <label for="materialTitle">
+                                Material Title
+                            </label>
+
+                            <input
+                                type="text"
+                                id="materialTitle"
+                                placeholder="Enter material title"
+                                required
+                            >
+
+                        </div>
+
+
+                        <!-- Category -->
+
+                        <div class="form-row">
+
+                            <div class="form-group">
+
+                                <label for="category">
+                                    Category
+                                </label>
+
+                                <select id="category" required>
+
+                                    <option value="">
+                                        Select category
+                                    </option>
+
+                                    <option value="Data Analysis">
+                                        Data Analysis
+                                    </option>
+
+                                    <option value="Statistics">
+                                        Statistics
+                                    </option>
+
+                                    <option value="Data Quality">
+                                        Data Quality
+                                    </option>
+
+                                    <option value="Data Management">
+                                        Data Management
+                                    </option>
+
+                                    <option value="Communication">
+                                        Communication
+                                    </option>
+
+                                    <option value="Research">
+                                        Research Methods
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="difficulty">
+                                    Difficulty Level
+                                </label>
+
+                                <select id="difficulty" required>
+
+                                    <option value="">
+                                        Select level
+                                    </option>
+
+                                    <option value="Beginner">
+                                        Beginner
+                                    </option>
+
+                                    <option value="Intermediate">
+                                        Intermediate
+                                    </option>
+
+                                    <option value="Advanced">
+                                        Advanced
+                                    </option>
+
+                                </select>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Description -->
+
+                        <div class="form-group">
+
+                            <label for="description">
+                                Description
+                            </label>
+
+                            <textarea
+                                id="description"
+                                rows="5"
+                                placeholder="Enter a short description of the learning material..."
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <!-- File Upload -->
+
+                        <div class="form-group">
+
+                            <label>
+                                Learning Material
+                            </label>
+
+
+                            <div
+                                class="drop-zone"
+                                id="dropZone"
+                            >
+
+                                <input
+                                    type="file"
+                                    id="fileInput"
+                                    accept=".pdf,.ppt,.pptx,.doc,.docx"
+                                    hidden
+                                >
+
+
+                                <div class="upload-icon">
+                                    ↑
+                                </div>
+
+
+                                <h3>
+                                    Drag & Drop your file here
+                                </h3>
+
+
+                                <p>
+                                    or click to browse from your computer
+                                </p>
+
+
+                                <span class="file-types">
+                                    Supported: PDF, PPT, PPTX, DOC, DOCX
+                                </span>
+
+
+                                <span class="file-size">
+                                    Maximum file size: 20 MB
+                                </span>
+
+                            </div>
+
+
+                            <div
+                                class="selected-file"
+                                id="selectedFile"
+                            >
+
+                                <div class="file-icon">
+                                    📄
+                                </div>
+
+                                <div class="file-info">
+
+                                    <strong id="fileName">
+                                        File name
+                                    </strong>
+
+                                    <span id="fileSize">
+                                        File size
+                                    </span>
+
+                                </div>
+
+
+                                <button
+                                    type="button"
+                                    id="removeFile"
+                                    class="remove-file"
+                                >
+                                    ×
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AI Processing -->
+
+                        <div class="ai-option">
+
+                            <div class="ai-option-left">
+
+                                <div class="ai-icon">
+                                    AI
+                                </div>
+
+                                <div>
+
+                                    <strong>
+                                        Enable AI Processing
+                                    </strong>
+
+                                    <span>
+                                        Automatically extract topics and generate quizzes
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+
+                            <label class="switch">
+
+                                <input
+                                    type="checkbox"
+                                    id="aiProcessing"
+                                    checked
+                                >
+
+                                <span class="slider"></span>
+
+                            </label>
+
+                        </div>
+
+
+                        <!-- Message -->
+
+                        <p
+                            id="uploadMessage"
+                            class="upload-message"
+                        ></p>
+
+
+                        <!-- Buttons -->
+
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                class="cancel-btn"
+                                id="cancelBtn"
+                            >
+                                Cancel
+                            </button>
+
+                            <button
+                                type="submit"
+                                class="upload-btn"
+                            >
+                                Upload Material
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+
+                <!-- Information Panel -->
+
+                <aside class="info-card">
+
+                    <div class="info-header">
+
+                        <div class="info-icon">
+                            AI
+                        </div>
+
+                        <div>
+                            <h2>AI Processing</h2>
+
+                            <p>
+                                What happens after upload?
+                            </p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="process-steps">
+
+
+                        <div class="process-step">
+
+                            <div class="step-number">
+                                1
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Document Analysis
+                                </strong>
+
+                                <p>
+                                    AI analyzes the uploaded document
+                                    and extracts relevant content.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="process-step">
+
+                            <div class="step-number">
+                                2
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Topic Extraction
+                                </strong>
+
+                                <p>
+                                    Important topics and concepts are
+                                    identified automatically.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="process-step">
+
+                            <div class="step-number">
+                                3
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Quiz Generation
+                                </strong>
+
+                                <p>
+                                    AI generates topic-wise MCQs with
+                                    different difficulty levels.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="process-step">
+
+                            <div class="step-number">
+                                4
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Admin Review
+                                </strong>
+
+                                <p>
+                                    Generated quizzes are sent for
+                                    admin approval before publishing.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="info-note">
+
+                        <strong>💡 Note</strong>
+
+                        <p>
+                            AI processing may take a few minutes
+                            depending on the document size.
+                        </p>
+
+                    </div>
+
+                </aside>
+
+            </section>
+
+
+            <!-- Recent Uploads -->
+
+            <section class="recent-card">
+
+                <div class="recent-header">
+
+                    <div>
+                        <h2>Recent Uploads</h2>
+
+                        <p>
+                            Recently added learning materials
+                        </p>
+                    </div>
+
+                    <a href="processing.html">
+                        View Processing
+                    </a>
+
+                </div>
+
+
+                <div class="recent-list">
+
+
+                    <div class="recent-item">
+
+                        <div class="recent-file-icon">
+                            PDF
+                        </div>
+
+                        <div class="recent-info">
+
+                            <strong>
+                                Data Quality Guide
+                            </strong>
+
+                            <span>
+                                PDF • Data Quality • 4.2 MB
+                            </span>
+
+                        </div>
+
+                        <span class="recent-status completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+
+                    <div class="recent-item">
+
+                        <div class="recent-file-icon">
+                            PPT
+                        </div>
+
+                        <div class="recent-info">
+
+                            <strong>
+                                Statistics Fundamentals
+                            </strong>
+
+                            <span>
+                                PPTX • Statistics • 8.6 MB
+                            </span>
+
+                        </div>
+
+                        <span class="recent-status processing">
+                            Processing
+                        </span>
+
+                    </div>
+
+
+                    <div class="recent-item">
+
+                        <div class="recent-file-icon">
+                            PDF
+                        </div>
+
+                        <div class="recent-info">
+
+                            <strong>
+                                Research Methods Handbook
+                            </strong>
+
+                            <span>
+                                PDF • Research • 5.1 MB
+                            </span>
+
+                        </div>
+
+                        <span class="recent-status completed">
+                            Completed
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+
+            <footer class="upload-footer">
+
+                <p>
+                    Official Statistical Learning Platform • Admin Portal
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="../js/upload.js"></script>
+
+</body>
+</html>

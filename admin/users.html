@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Users | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/users.css">
+</head>
+
+<body>
+
+    <div class="admin-layout">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <div class="brand-logo">AI</div>
+
+                <div>
+                    <h2>AI Learning</h2>
+                    <span>Admin Portal</span>
+                </div>
+            </div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="dashboard.html" class="nav-item">
+                    <span class="nav-icon">▦</span>
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="users.html" class="nav-item active">
+                    <span class="nav-icon">♙</span>
+                    <span>Users</span>
+                </a>
+
+                <a href="upload.html" class="nav-item">
+                    <span class="nav-icon">↑</span>
+                    <span>Upload Materials</span>
+                </a>
+
+                <a href="processing.html" class="nav-item">
+                    <span class="nav-icon">⚙</span>
+                    <span>Material Processing</span>
+                </a>
+
+                <a href="review.html" class="nav-item">
+                    <span class="nav-icon">✓</span>
+                    <span>Quiz Review</span>
+                    <span class="nav-badge">8</span>
+                </a>
+
+                <a href="reports.html" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    <span>Reports</span>
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <a href="#" class="nav-item">
+                    <span class="nav-icon">●</span>
+                    <span>Profile</span>
+                </a>
+
+                <button class="logout-btn" id="logoutBtn">
+                    <span class="nav-icon">↪</span>
+                    <span>Logout</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+
+        <main class="main-content">
+
+            <!-- Header -->
+
+            <header class="top-header">
+
+                <div>
+                    <h1>Users</h1>
+                    <p>Manage employees and administrators</p>
+                </div>
+
+
+                <div class="header-right">
+
+                    <button class="notification-btn" id="notificationBtn">
+                        🔔
+                        <span class="notification-dot"></span>
+                    </button>
+
+                    <div class="admin-user">
+
+                        <div class="user-avatar">
+                            A
+                        </div>
+
+                        <div class="user-info">
+                            <strong>Admin User</strong>
+                            <span>Administrator</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+
+            <!-- User Statistics -->
+
+            <section class="user-stats">
+
+                <div class="user-stat-card">
+
+                    <div class="user-stat-icon blue">
+                        ♙
+                    </div>
+
+                    <div>
+                        <span>Total Users</span>
+                        <strong>248</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="user-stat-card">
+
+                    <div class="user-stat-icon green">
+                        ●
+                    </div>
+
+                    <div>
+                        <span>Active Users</span>
+                        <strong>182</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="user-stat-card">
+
+                    <div class="user-stat-icon orange">
+                        ○
+                    </div>
+
+                    <div>
+                        <span>Inactive Users</span>
+                        <strong>48</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="user-stat-card">
+
+                    <div class="user-stat-icon purple">
+                        ★
+                    </div>
+
+                    <div>
+                        <span>Administrators</span>
+                        <strong>18</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- User Management -->
+
+            <section class="users-card">
+
+                <div class="users-card-header">
+
+                    <div>
+                        <h2>User Management</h2>
+                        <p>View, search and manage platform users</p>
+                    </div>
+
+                    <button class="add-user-btn" id="addUserBtn">
+                        + Add New User
+                    </button>
+
+                </div>
+
+
+                <!-- Filters -->
+
+                <div class="filters">
+
+                    <div class="search-box">
+
+                        <span>⌕</span>
+
+                        <input
+                            type="text"
+                            id="searchInput"
+                            placeholder="Search by name or email..."
+                        >
+
+                    </div>
+
+
+                    <select id="roleFilter">
+
+                        <option value="all">
+                            All Roles
+                        </option>
+
+                        <option value="employee">
+                            Employee
+                        </option>
+
+                        <option value="admin">
+                            Administrator
+                        </option>
+
+                    </select>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="active">
+                            Active
+                        </option>
+
+                        <option value="inactive">
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- Table -->
+
+                <div class="table-wrapper">
+
+                    <table class="users-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>User</th>
+
+                                <th>Role</th>
+
+                                <th>Department</th>
+
+                                <th>Status</th>
+
+                                <th>Last Active</th>
+
+                                <th>Action</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="usersTableBody">
+
+                            <tr
+                                data-name="Prabhat Raj"
+                                data-email="prabhat@example.com"
+                                data-role="employee"
+                                data-status="active"
+                            >
+
+                                <td>
+
+                                    <div class="table-user">
+
+                                        <div class="table-avatar blue-bg">
+                                            P
+                                        </div>
+
+                                        <div>
+                                            <strong>Prabhat Raj</strong>
+                                            <span>prabhat@example.com</span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <span class="role employee">
+                                        Employee
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Statistics
+                                </td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Today, 10:30 AM
+                                </td>
+
+                                <td>
+                                    <button
+                                        class="action-btn view-btn"
+                                        data-user="Prabhat Raj"
+                                    >
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr
+                                data-name="Anjali Sharma"
+                                data-email="anjali@example.com"
+                                data-role="employee"
+                                data-status="active"
+                            >
+
+                                <td>
+
+                                    <div class="table-user">
+
+                                        <div class="table-avatar purple-bg">
+                                            A
+                                        </div>
+
+                                        <div>
+                                            <strong>Anjali Sharma</strong>
+                                            <span>anjali@example.com</span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <span class="role employee">
+                                        Employee
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Data & Analytics
+                                </td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Today, 09:45 AM
+                                </td>
+
+                                <td>
+                                    <button
+                                        class="action-btn view-btn"
+                                        data-user="Anjali Sharma"
+                                    >
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr
+                                data-name="Rahul Kumar"
+                                data-email="rahul@example.com"
+                                data-role="employee"
+                                data-status="inactive"
+                            >
+
+                                <td>
+
+                                    <div class="table-user">
+
+                                        <div class="table-avatar green-bg">
+                                            R
+                                        </div>
+
+                                        <div>
+                                            <strong>Rahul Kumar</strong>
+                                            <span>rahul@example.com</span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <span class="role employee">
+                                        Employee
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Research
+                                </td>
+
+                                <td>
+                                    <span class="status inactive">
+                                        Inactive
+                                    </span>
+                                </td>
+
+                                <td>
+                                    3 days ago
+                                </td>
+
+                                <td>
+                                    <button
+                                        class="action-btn view-btn"
+                                        data-user="Rahul Kumar"
+                                    >
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr
+                                data-name="Neha Verma"
+                                data-email="neha@example.com"
+                                data-role="employee"
+                                data-status="active"
+                            >
+
+                                <td>
+
+                                    <div class="table-user">
+
+                                        <div class="table-avatar orange-bg">
+                                            N
+                                        </div>
+
+                                        <div>
+                                            <strong>Neha Verma</strong>
+                                            <span>neha@example.com</span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <span class="role employee">
+                                        Employee
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Administration
+                                </td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Yesterday, 04:20 PM
+                                </td>
+
+                                <td>
+                                    <button
+                                        class="action-btn view-btn"
+                                        data-user="Neha Verma"
+                                    >
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr
+                                data-name="Amit Singh"
+                                data-email="amit@example.com"
+                                data-role="admin"
+                                data-status="active"
+                            >
+
+                                <td>
+
+                                    <div class="table-user">
+
+                                        <div class="table-avatar red-bg">
+                                            A
+                                        </div>
+
+                                        <div>
+                                            <strong>Amit Singh</strong>
+                                            <span>amit@example.com</span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <span class="role admin">
+                                        Administrator
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Administration
+                                </td>
+
+                                <td>
+                                    <span class="status active">
+                                        Active
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Today, 11:15 AM
+                                </td>
+
+                                <td>
+                                    <button
+                                        class="action-btn view-btn"
+                                        data-user="Amit Singh"
+                                    >
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+
+                            <tr
+                                data-name="Pooja Mehta"
+                                data-email="pooja@example.com"
+                                data-role="employee"
+                                data-status="inactive"
+                            >
+
+                                <td>
+
+                                    <div class="table-user">
+
+                                        <div class="table-avatar pink-bg">
+                                            P
+                                        </div>
+
+                                        <div>
+                                            <strong>Pooja Mehta</strong>
+                                            <span>pooja@example.com</span>
+                                        </div>
+
+                                    </div>
+
+                                </td>
+
+                                <td>
+                                    <span class="role employee">
+                                        Employee
+                                    </span>
+                                </td>
+
+                                <td>
+                                    Statistics
+                                </td>
+
+                                <td>
+                                    <span class="status inactive">
+                                        Inactive
+                                    </span>
+                                </td>
+
+                                <td>
+                                    7 days ago
+                                </td>
+
+                                <td>
+                                    <button
+                                        class="action-btn view-btn"
+                                        data-user="Pooja Mehta"
+                                    >
+                                        View
+                                    </button>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+
+                <!-- No Results -->
+
+                <div id="noResults" class="no-results">
+                    No users found.
+                </div>
+
+
+                <!-- Pagination -->
+
+                <div class="pagination">
+
+                    <span>
+                        Showing 1–6 of 248 users
+                    </span>
+
+                    <div class="page-buttons">
+
+                        <button class="page-btn disabled">
+                            ‹
+                        </button>
+
+                        <button class="page-btn active">
+                            1
+                        </button>
+
+                        <button class="page-btn">
+                            2
+                        </button>
+
+                        <button class="page-btn">
+                            3
+                        </button>
+
+                        <button class="page-btn">
+                            4
+                        </button>
+
+                        <button class="page-btn">
+                            5
+                        </button>
+
+                        <button class="page-btn">
+                            ›
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Footer -->
+
+            <footer class="users-footer">
+                <p>
+                    Official Statistical Learning Platform • Admin Portal
+                </p>
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <!-- User Modal -->
+
+    <div class="modal-overlay" id="userModal">
+
+        <div class="user-modal">
+
+            <button class="modal-close" id="modalClose">
+                ×
+            </button>
+
+            <div class="modal-avatar" id="modalAvatar">
+                P
+            </div>
+
+            <h2 id="modalName">
+                Prabhat Raj
+            </h2>
+
+            <p id="modalEmail">
+                prabhat@example.com
+            </p>
+
+
+            <div class="modal-details">
+
+                <div>
+                    <span>Role</span>
+                    <strong id="modalRole">
+                        Employee
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Status</span>
+                    <strong id="modalStatus">
+                        Active
+                    </strong>
+                </div>
+
+                <div>
+                    <span>Department</span>
+                    <strong id="modalDepartment">
+                        Statistics
+                    </strong>
+                </div>
+
+            </div>
+
+
+            <button class="modal-action" id="editUserBtn">
+                Edit User
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script src="../js/users.js"></script>
+
+</body>
+</html>

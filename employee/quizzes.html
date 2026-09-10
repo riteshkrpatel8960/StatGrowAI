@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quizzes | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quizzes.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-box">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Employee Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="competencies.html">
+                <span>◆</span>
+                Competencies
+            </a>
+
+            <a href="assessments.html">
+                <span>✓</span>
+                Assessments
+            </a>
+
+            <a href="materials.html">
+                <span>▤</span>
+                Learning Materials
+            </a>
+
+            <a href="quizzes.html" class="active">
+                <span>?</span>
+                Quizzes
+            </a>
+
+            <a href="recommendations.html">
+                <span>★</span>
+                Recommendations
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <span>◉</span>
+                Profile
+            </a>
+
+            <a href="../index.html" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <div>
+                <h1>Quizzes</h1>
+                <p>Test your knowledge and track your performance</p>
+            </div>
+
+            <div class="header-user">
+
+                <div class="notification">
+                    🔔
+                </div>
+
+                <div class="user-avatar">
+                    P
+                </div>
+
+                <div class="user-info">
+                    <strong>Prabhat Raj</strong>
+                    <span>Employee</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page -->
+        <section class="quizzes-page">
+
+
+            <!-- Stats -->
+            <div class="quiz-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        ?
+                    </div>
+
+                    <div>
+                        <span>Total Quizzes</span>
+                        <strong>12</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong>8</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⏳
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <strong>4</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ★
+                    </div>
+
+                    <div>
+                        <span>Average Score</span>
+                        <strong>78%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Quiz Header -->
+            <div class="quiz-section-header">
+
+                <div>
+                    <h2>Available Quizzes</h2>
+                    <p>Choose a quiz to test your knowledge.</p>
+                </div>
+
+                <select id="quizFilter">
+
+                    <option value="all">
+                        All Quizzes
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Quiz List -->
+            <div class="quiz-list">
+
+
+                <!-- Quiz 1 -->
+                <div class="quiz-card" data-status="pending">
+
+                    <div class="quiz-icon data-quality">
+                        DQ
+                    </div>
+
+                    <div class="quiz-content">
+
+                        <div class="quiz-title-row">
+
+                            <h3>Data Quality Fundamentals</h3>
+
+                            <span class="difficulty medium">
+                                Medium
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Test your understanding of data validation,
+                            accuracy and data quality concepts.
+                        </p>
+
+                        <div class="quiz-meta">
+
+                            <span>📋 10 Questions</span>
+
+                            <span>⏱ 15 Minutes</span>
+
+                            <span>🎯 Data Quality</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-action">
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                        <button class="start-quiz-btn">
+                            Start Quiz
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quiz 2 -->
+                <div class="quiz-card" data-status="completed">
+
+                    <div class="quiz-icon data-analysis">
+                        DA
+                    </div>
+
+                    <div class="quiz-content">
+
+                        <div class="quiz-title-row">
+
+                            <h3>Data Analysis Basics</h3>
+
+                            <span class="difficulty easy">
+                                Easy
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Test your knowledge of basic data analysis
+                            and interpretation techniques.
+                        </p>
+
+                        <div class="quiz-meta">
+
+                            <span>📋 10 Questions</span>
+
+                            <span>⏱ 15 Minutes</span>
+
+                            <span>🎯 Data Analysis</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-action">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="quiz-score">
+                            85%
+                        </strong>
+
+                        <button class="result-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quiz 3 -->
+                <div class="quiz-card" data-status="pending">
+
+                    <div class="quiz-icon statistics">
+                        ST
+                    </div>
+
+                    <div class="quiz-content">
+
+                        <div class="quiz-title-row">
+
+                            <h3>Statistics Fundamentals</h3>
+
+                            <span class="difficulty easy">
+                                Easy
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Check your understanding of probability,
+                            averages and statistical concepts.
+                        </p>
+
+                        <div class="quiz-meta">
+
+                            <span>📋 15 Questions</span>
+
+                            <span>⏱ 20 Minutes</span>
+
+                            <span>🎯 Statistics</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-action">
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                        <button class="start-quiz-btn">
+                            Start Quiz
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quiz 4 -->
+                <div class="quiz-card" data-status="completed">
+
+                    <div class="quiz-icon communication">
+                        CO
+                    </div>
+
+                    <div class="quiz-content">
+
+                        <div class="quiz-title-row">
+
+                            <h3>Statistical Communication</h3>
+
+                            <span class="difficulty hard">
+                                Hard
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Test your ability to communicate statistical
+                            findings clearly and effectively.
+                        </p>
+
+                        <div class="quiz-meta">
+
+                            <span>📋 10 Questions</span>
+
+                            <span>⏱ 15 Minutes</span>
+
+                            <span>🎯 Communication</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-action">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="quiz-score">
+                            72%
+                        </strong>
+
+                        <button class="result-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quiz 5 -->
+                <div class="quiz-card" data-status="pending">
+
+                    <div class="quiz-icon data-management">
+                        DM
+                    </div>
+
+                    <div class="quiz-content">
+
+                        <div class="quiz-title-row">
+
+                            <h3>Data Management</h3>
+
+                            <span class="difficulty medium">
+                                Medium
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Evaluate your knowledge of data organization,
+                            storage and management.
+                        </p>
+
+                        <div class="quiz-meta">
+
+                            <span>📋 12 Questions</span>
+
+                            <span>⏱ 18 Minutes</span>
+
+                            <span>🎯 Data Management</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-action">
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                        <button class="start-quiz-btn">
+                            Start Quiz
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Quiz 6 -->
+                <div class="quiz-card" data-status="completed">
+
+                    <div class="quiz-icon research">
+                        RS
+                    </div>
+
+                    <div class="quiz-content">
+
+                        <div class="quiz-title-row">
+
+                            <h3>Research Methods</h3>
+
+                            <span class="difficulty hard">
+                                Hard
+                            </span>
+
+                        </div>
+
+                        <p>
+                            Test your understanding of research methods
+                            and statistical research practices.
+                        </p>
+
+                        <div class="quiz-meta">
+
+                            <span>📋 15 Questions</span>
+
+                            <span>⏱ 20 Minutes</span>
+
+                            <span>🎯 Research</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="quiz-action">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="quiz-score">
+                            78%
+                        </strong>
+
+                        <button class="result-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- Info Box -->
+            <div class="quiz-info-box">
+
+                <div class="info-icon">
+                    AI
+                </div>
+
+                <div>
+                    <h3>AI-Powered Quizzes</h3>
+
+                    <p>
+                        Quizzes are generated from approved learning
+                        materials and can include different difficulty
+                        levels to help identify your competency gaps.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/quizzes.js"></script>
+
+</body>
+</html>

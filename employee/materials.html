@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learning Materials | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/materials.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-box">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Employee Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="competencies.html">
+                <span>◆</span>
+                Competencies
+            </a>
+
+            <a href="assessments.html">
+                <span>✓</span>
+                Assessments
+            </a>
+
+            <a href="materials.html" class="active">
+                <span>▤</span>
+                Learning Materials
+            </a>
+
+            <a href="quizzes.html">
+                <span>?</span>
+                Quizzes
+            </a>
+
+            <a href="recommendations.html">
+                <span>★</span>
+                Recommendations
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <span>◉</span>
+                Profile
+            </a>
+
+            <a href="../index.html" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <div>
+                <h1>Learning Materials</h1>
+                <p>Learn new skills and improve your competencies</p>
+            </div>
+
+            <div class="header-user">
+
+                <div class="notification">
+                    🔔
+                </div>
+
+                <div class="user-avatar">
+                    P
+                </div>
+
+                <div class="user-info">
+                    <strong>Prabhat Raj</strong>
+                    <span>Employee</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page -->
+        <section class="materials-page">
+
+
+            <!-- Learning Overview -->
+            <div class="learning-overview">
+
+                <div class="overview-text">
+
+                    <h2>Your Learning Journey</h2>
+
+                    <p>
+                        Continue learning and build the competencies
+                        required for your role.
+                    </p>
+
+                </div>
+
+                <div class="overall-progress">
+
+                    <div class="progress-info">
+
+                        <span>Overall Learning Progress</span>
+
+                        <strong>65%</strong>
+
+                    </div>
+
+                    <div class="progress-bar">
+
+                        <div class="progress-fill"
+                             style="width: 65%;">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Filters -->
+            <div class="materials-header">
+
+                <div>
+                    <h2>Learning Materials</h2>
+                    <p>Explore courses and learning resources.</p>
+                </div>
+
+                <div class="material-filters">
+
+                    <select id="categoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="data-analysis">
+                            Data Analysis
+                        </option>
+
+                        <option value="statistics">
+                            Statistics
+                        </option>
+
+                        <option value="data-quality">
+                            Data Quality
+                        </option>
+
+                        <option value="communication">
+                            Communication
+                        </option>
+
+                        <option value="data-management">
+                            Data Management
+                        </option>
+
+                    </select>
+
+
+                    <select id="statusFilter">
+
+                        <option value="all">
+                            All Status
+                        </option>
+
+                        <option value="completed">
+                            Completed
+                        </option>
+
+                        <option value="progress">
+                            In Progress
+                        </option>
+
+                        <option value="not-started">
+                            Not Started
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- Materials Grid -->
+            <div class="materials-grid">
+
+
+                <!-- Material 1 -->
+                <div class="material-card"
+                     data-category="data-quality"
+                     data-status="progress">
+
+                    <div class="material-image data-quality">
+                        DQ
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                Data Quality
+                            </span>
+
+                            <span class="status progress-status">
+                                In Progress
+                            </span>
+
+                        </div>
+
+                        <h3>Data Quality Fundamentals</h3>
+
+                        <p>
+                            Learn data validation, accuracy,
+                            consistency and quality management.
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>📚 6 Modules</span>
+
+                            <span>⏱ 3 Hours</span>
+
+                        </div>
+
+                        <div class="course-progress">
+
+                            <div class="course-progress-info">
+
+                                <span>Progress</span>
+
+                                <strong>60%</strong>
+
+                            </div>
+
+                            <div class="small-progress">
+
+                                <div style="width: 60%;"></div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-btn">
+                            Continue Learning
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Material 2 -->
+                <div class="material-card"
+                     data-category="data-analysis"
+                     data-status="completed">
+
+                    <div class="material-image data-analysis">
+                        DA
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                Data Analysis
+                            </span>
+
+                            <span class="status completed-status">
+                                Completed
+                            </span>
+
+                        </div>
+
+                        <h3>Introduction to Data Analysis</h3>
+
+                        <p>
+                            Understand the fundamentals of data
+                            analysis and data interpretation.
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>📚 5 Modules</span>
+
+                            <span>⏱ 2.5 Hours</span>
+
+                        </div>
+
+                        <div class="course-progress">
+
+                            <div class="course-progress-info">
+
+                                <span>Progress</span>
+
+                                <strong>100%</strong>
+
+                            </div>
+
+                            <div class="small-progress">
+
+                                <div style="width: 100%;"></div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-btn">
+                            Review Course
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Material 3 -->
+                <div class="material-card"
+                     data-category="communication"
+                     data-status="not-started">
+
+                    <div class="material-image communication">
+                        CO
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                Communication
+                            </span>
+
+                            <span class="status new-status">
+                                Not Started
+                            </span>
+
+                        </div>
+
+                        <h3>Statistical Communication</h3>
+
+                        <p>
+                            Learn how to communicate statistical
+                            findings clearly and effectively.
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>📚 7 Modules</span>
+
+                            <span>⏱ 4 Hours</span>
+
+                        </div>
+
+                        <div class="course-progress">
+
+                            <div class="course-progress-info">
+
+                                <span>Progress</span>
+
+                                <strong>0%</strong>
+
+                            </div>
+
+                            <div class="small-progress">
+
+                                <div style="width: 0%;"></div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-btn">
+                            Start Learning
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Material 4 -->
+                <div class="material-card"
+                     data-category="data-management"
+                     data-status="progress">
+
+                    <div class="material-image data-management">
+                        DM
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                Data Management
+                            </span>
+
+                            <span class="status progress-status">
+                                In Progress
+                            </span>
+
+                        </div>
+
+                        <h3>Advanced Data Management</h3>
+
+                        <p>
+                            Improve your skills in organizing,
+                            storing and managing datasets.
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>📚 8 Modules</span>
+
+                            <span>⏱ 5 Hours</span>
+
+                        </div>
+
+                        <div class="course-progress">
+
+                            <div class="course-progress-info">
+
+                                <span>Progress</span>
+
+                                <strong>35%</strong>
+
+                            </div>
+
+                            <div class="small-progress">
+
+                                <div style="width: 35%;"></div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-btn">
+                            Continue Learning
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Material 5 -->
+                <div class="material-card"
+                     data-category="statistics"
+                     data-status="completed">
+
+                    <div class="material-image statistics">
+                        ST
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                Statistics
+                            </span>
+
+                            <span class="status completed-status">
+                                Completed
+                            </span>
+
+                        </div>
+
+                        <h3>Statistics Fundamentals</h3>
+
+                        <p>
+                            Master descriptive statistics,
+                            probability and basic statistical methods.
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>📚 6 Modules</span>
+
+                            <span>⏱ 3 Hours</span>
+
+                        </div>
+
+                        <div class="course-progress">
+
+                            <div class="course-progress-info">
+
+                                <span>Progress</span>
+
+                                <strong>100%</strong>
+
+                            </div>
+
+                            <div class="small-progress">
+
+                                <div style="width: 100%;"></div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-btn">
+                            Review Course
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Material 6 -->
+                <div class="material-card"
+                     data-category="data-analysis"
+                     data-status="not-started">
+
+                    <div class="material-image data-analysis">
+                        AD
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                Data Analysis
+                            </span>
+
+                            <span class="status new-status">
+                                Not Started
+                            </span>
+
+                        </div>
+
+                        <h3>Advanced Data Analysis</h3>
+
+                        <p>
+                            Develop advanced analytical skills
+                            for complex statistical datasets.
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>📚 10 Modules</span>
+
+                            <span>⏱ 6 Hours</span>
+
+                        </div>
+
+                        <div class="course-progress">
+
+                            <div class="course-progress-info">
+
+                                <span>Progress</span>
+
+                                <strong>0%</strong>
+
+                            </div>
+
+                            <div class="small-progress">
+
+                                <div style="width: 0%;"></div>
+
+                            </div>
+
+                        </div>
+
+                        <button class="continue-btn">
+                            Start Learning
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/materials.js"></script>
+
+</body>
+</html>
