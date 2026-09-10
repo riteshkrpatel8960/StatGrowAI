@@ -279,6 +279,121 @@ if (detailsModal) {
 
 
 // ===============================
+// Retry state persistence
+// (so a fixed item doesn't revert to "Failed" on reload)
+// ===============================
+
+function getRetryOverrides() {
+
+    try {
+
+        return (
+            JSON.parse(
+                localStorage.getItem("materialRetryStatus")
+            ) || {}
+        );
+
+    } catch (e) {
+
+        return {};
+
+    }
+
+}
+
+function setRetryOverride(materialName, status) {
+
+    const overrides = getRetryOverrides();
+
+    overrides[materialName] = status;
+
+    localStorage.setItem(
+        "materialRetryStatus",
+        JSON.stringify(overrides)
+    );
+
+}
+
+
+function applyStatusToCard(materialItem, status) {
+
+    materialItem.dataset.status = status;
+
+    const statusBadge =
+        materialItem.querySelector(".status");
+
+    const progressFill =
+        materialItem.querySelector(".progress-fill");
+
+    const progressLabelText =
+        materialItem.querySelector(".progress-label span");
+
+    const progressPercent =
+        materialItem.querySelector(".progress-label strong");
+
+    const retryBtn =
+        materialItem.querySelector(".retry-btn");
+
+    statusBadge.classList.remove(
+        "completed", "processing", "pending", "failed"
+    );
+
+    progressFill.classList.remove(
+        "completed", "pending", "failed"
+    );
+
+    if (status === "processing") {
+
+        statusBadge.classList.add("processing");
+        statusBadge.textContent = "Processing";
+
+        progressLabelText.textContent = "Processing";
+        progressFill.style.width = "60%";
+        progressPercent.textContent = "60%";
+
+    } else if (status === "completed") {
+
+        statusBadge.classList.add("completed");
+        progressFill.classList.add("completed");
+
+        statusBadge.textContent = "Completed";
+        progressLabelText.textContent = "Completed";
+        progressFill.style.width = "100%";
+        progressPercent.textContent = "100%";
+
+        if (retryBtn) {
+            retryBtn.remove();
+        }
+
+    }
+
+}
+
+
+// Re-apply any previously fixed items when the page loads,
+// so refreshing doesn't put a retried material back to "Failed".
+document.addEventListener("DOMContentLoaded", function () {
+
+    const overrides = getRetryOverrides();
+
+    Object.keys(overrides).forEach(function (materialName) {
+
+        const materialItem = Array.from(
+            document.querySelectorAll(".material-item")
+        ).find(function (item) {
+            return item.dataset.name === materialName;
+        });
+
+        if (materialItem) {
+            applyStatusToCard(materialItem, overrides[materialName]);
+        }
+
+    });
+
+});
+
+
+// ===============================
 // Retry Processing
 // ===============================
 
@@ -298,6 +413,9 @@ retryButtons.forEach(function (button) {
             const materialName =
                 this.dataset.material;
 
+            const materialItem =
+                this.closest(".material-item");
+
 
             const retry =
                 confirm(
@@ -307,13 +425,20 @@ retryButtons.forEach(function (button) {
                 );
 
 
-            if (retry) {
-
-                alert(
-                    "AI processing restarted successfully."
-                );
-
+            if (!retry) {
+                return;
             }
+
+            // Move the card to "Processing" immediately
+            applyStatusToCard(materialItem, "processing");
+            setRetryOverride(materialName, "processing");
+
+            // Simulate the reprocessing completing successfully,
+            // and this time it sticks — no more "Failed" for this item.
+            setTimeout(function () {
+                applyStatusToCard(materialItem, "completed");
+                setRetryOverride(materialName, "completed");
+            }, 2500);
 
         }
     );
