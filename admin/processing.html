@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Material Processing | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/processing.css">
+</head>
+
+<body>
+
+<div class="admin-layout">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="brand-logo">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Admin Portal</span>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html" class="nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="users.html" class="nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Users</span>
+            </a>
+
+            <a href="upload.html" class="nav-item">
+                <span class="nav-icon">↑</span>
+                <span>Upload Materials</span>
+            </a>
+
+            <a href="processing.html" class="nav-item active">
+                <span class="nav-icon">⚙</span>
+                <span>Material Processing</span>
+            </a>
+
+            <a href="review.html" class="nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Quiz Review</span>
+                <span class="nav-badge">8</span>
+            </a>
+
+            <a href="reports.html" class="nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+                <span class="nav-icon">●</span>
+                <span>Profile</span>
+            </a>
+
+            <button class="logout-btn" id="logoutBtn">
+                <span class="nav-icon">↪</span>
+                <span>Logout</span>
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+        <header class="top-header">
+
+            <div>
+                <h1>Material Processing</h1>
+                <p>Monitor AI analysis and quiz generation</p>
+            </div>
+
+
+            <div class="header-right">
+
+                <button class="notification-btn" id="notificationBtn">
+                    🔔
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="admin-user">
+
+                    <div class="user-avatar">
+                        A
+                    </div>
+
+                    <div class="user-info">
+                        <strong>Admin User</strong>
+                        <span>Administrator</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Statistics -->
+
+        <section class="processing-stats">
+
+            <div class="stat-card">
+
+                <div class="stat-icon blue">
+                    ▤
+                </div>
+
+                <div>
+                    <span>Total Materials</span>
+                    <strong>36</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon green">
+                    ✓
+                </div>
+
+                <div>
+                    <span>Completed</span>
+                    <strong>28</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon orange">
+                    ⚙
+                </div>
+
+                <div>
+                    <span>Processing</span>
+                    <strong>3</strong>
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon red">
+                    !
+                </div>
+
+                <div>
+                    <span>Failed</span>
+                    <strong>2</strong>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Processing Overview -->
+
+        <section class="overview-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>AI Processing Pipeline</h2>
+                    <p>Current status of uploaded learning materials</p>
+                </div>
+
+                <button class="refresh-btn" id="refreshBtn">
+                    ↻ Refresh
+                </button>
+
+            </div>
+
+
+            <div class="pipeline">
+
+                <div class="pipeline-step completed-step">
+
+                    <div class="pipeline-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>Uploaded</strong>
+                        <span>36 materials</span>
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-step completed-step">
+
+                    <div class="pipeline-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>Analyzed</strong>
+                        <span>31 materials</span>
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-step processing-step">
+
+                    <div class="pipeline-icon">
+                        ⚙
+                    </div>
+
+                    <div>
+                        <strong>Topics Extracted</strong>
+                        <span>29 materials</span>
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-line"></div>
+
+
+                <div class="pipeline-step">
+
+                    <div class="pipeline-icon pending-icon">
+                        4
+                    </div>
+
+                    <div>
+                        <strong>Quiz Generated</strong>
+                        <span>24 materials</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Filters -->
+
+        <section class="materials-card">
+
+            <div class="section-header">
+
+                <div>
+                    <h2>Processing Queue</h2>
+                    <p>Track individual material processing</p>
+                </div>
+
+            </div>
+
+
+            <div class="filters">
+
+                <div class="search-box">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Search materials..."
+                    >
+
+                </div>
+
+
+                <select id="statusFilter">
+
+                    <option value="all">
+                        All Status
+                    </option>
+
+                    <option value="completed">
+                        Completed
+                    </option>
+
+                    <option value="processing">
+                        Processing
+                    </option>
+
+                    <option value="pending">
+                        Pending
+                    </option>
+
+                    <option value="failed">
+                        Failed
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Material List -->
+
+            <div class="material-list" id="materialList">
+
+
+                <!-- Material 1 -->
+
+                <div
+                    class="material-item"
+                    data-name="Data Quality Guide"
+                    data-status="completed"
+                >
+
+                    <div class="material-icon pdf">
+                        PDF
+                    </div>
+
+                    <div class="material-info">
+
+                        <strong>Data Quality Guide</strong>
+
+                        <span>
+                            PDF • 4.2 MB • Uploaded today
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+                            <span>Processing</span>
+                            <strong>100%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill completed"
+                                style="width: 100%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <span class="status completed">
+                        Completed
+                    </span>
+
+
+                    <button
+                        class="details-btn"
+                        data-material="Data Quality Guide"
+                    >
+                        Details
+                    </button>
+
+                </div>
+
+
+                <!-- Material 2 -->
+
+                <div
+                    class="material-item"
+                    data-name="Statistics Fundamentals"
+                    data-status="processing"
+                >
+
+                    <div class="material-icon ppt">
+                        PPT
+                    </div>
+
+                    <div class="material-info">
+
+                        <strong>Statistics Fundamentals</strong>
+
+                        <span>
+                            PPTX • 8.6 MB • Uploaded today
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+                            <span>Processing</span>
+                            <strong>68%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill"
+                                style="width: 68%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <span class="status processing">
+                        Processing
+                    </span>
+
+
+                    <button
+                        class="details-btn"
+                        data-material="Statistics Fundamentals"
+                    >
+                        Details
+                    </button>
+
+                </div>
+
+
+                <!-- Material 3 -->
+
+                <div
+                    class="material-item"
+                    data-name="Research Methods Handbook"
+                    data-status="completed"
+                >
+
+                    <div class="material-icon pdf">
+                        PDF
+                    </div>
+
+                    <div class="material-info">
+
+                        <strong>Research Methods Handbook</strong>
+
+                        <span>
+                            PDF • 5.1 MB • Uploaded yesterday
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+                            <span>Processing</span>
+                            <strong>100%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill completed"
+                                style="width: 100%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <span class="status completed">
+                        Completed
+                    </span>
+
+
+                    <button
+                        class="details-btn"
+                        data-material="Research Methods Handbook"
+                    >
+                        Details
+                    </button>
+
+                </div>
+
+
+                <!-- Material 4 -->
+
+                <div
+                    class="material-item"
+                    data-name="Data Management Manual"
+                    data-status="pending"
+                >
+
+                    <div class="material-icon doc">
+                        DOC
+                    </div>
+
+                    <div class="material-info">
+
+                        <strong>Data Management Manual</strong>
+
+                        <span>
+                            DOCX • 3.8 MB • Uploaded yesterday
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+                            <span>Waiting</span>
+                            <strong>25%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill pending"
+                                style="width: 25%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <span class="status pending">
+                        Pending
+                    </span>
+
+
+                    <button
+                        class="details-btn"
+                        data-material="Data Management Manual"
+                    >
+                        Details
+                    </button>
+
+                </div>
+
+
+                <!-- Material 5 -->
+
+                <div
+                    class="material-item"
+                    data-name="Statistical Communication"
+                    data-status="failed"
+                >
+
+                    <div class="material-icon pdf">
+                        PDF
+                    </div>
+
+                    <div class="material-info">
+
+                        <strong>Statistical Communication</strong>
+
+                        <span>
+                            PDF • 6.3 MB • Uploaded 2 days ago
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+                            <span>Processing Failed</span>
+                            <strong>42%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill failed"
+                                style="width: 42%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <span class="status failed">
+                        Failed
+                    </span>
+
+
+                    <button
+                        class="details-btn retry-btn"
+                        data-material="Statistical Communication"
+                    >
+                        Retry
+                    </button>
+
+                </div>
+
+
+                <!-- Material 6 -->
+
+                <div
+                    class="material-item"
+                    data-name="Advanced Data Analysis"
+                    data-status="processing"
+                >
+
+                    <div class="material-icon ppt">
+                        PPT
+                    </div>
+
+                    <div class="material-info">
+
+                        <strong>Advanced Data Analysis</strong>
+
+                        <span>
+                            PPTX • 7.4 MB • Uploaded 2 days ago
+                        </span>
+
+                    </div>
+
+
+                    <div class="progress-area">
+
+                        <div class="progress-label">
+                            <span>Processing</span>
+                            <strong>82%</strong>
+                        </div>
+
+                        <div class="progress-bar">
+                            <div
+                                class="progress-fill"
+                                style="width: 82%;"
+                            ></div>
+                        </div>
+
+                    </div>
+
+
+                    <span class="status processing">
+                        Processing
+                    </span>
+
+
+                    <button
+                        class="details-btn"
+                        data-material="Advanced Data Analysis"
+                    >
+                        Details
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div id="noResults" class="no-results">
+                No materials found.
+            </div>
+
+        </section>
+
+
+        <!-- AI Processing Information -->
+
+        <section class="ai-info-card">
+
+            <div class="ai-info-icon">
+                AI
+            </div>
+
+            <div>
+
+                <h2>How AI Processing Works</h2>
+
+                <p>
+                    Uploaded documents are analyzed using AI to identify
+                    topics, concepts and important learning points.
+                    The system then generates topic-wise quizzes with
+                    different difficulty levels.
+                </p>
+
+            </div>
+
+            <a href="review.html" class="review-link">
+                Review Generated Quizzes →
+            </a>
+
+        </section>
+
+
+        <footer class="processing-footer">
+
+            <p>
+                Official Statistical Learning Platform • Admin Portal
+            </p>
+
+        </footer>
+
+    </main>
+
+</div>
+
+
+<!-- Details Modal -->
+
+<div class="modal-overlay" id="detailsModal">
+
+    <div class="details-modal">
+
+        <button class="modal-close" id="modalClose">
+            ×
+        </button>
+
+        <div class="modal-icon">
+            AI
+        </div>
+
+        <h2 id="modalTitle">
+            Material Details
+        </h2>
+
+        <p id="modalMaterial">
+            Data Quality Guide
+        </p>
+
+
+        <div class="modal-progress">
+
+            <div class="modal-progress-header">
+                <span>AI Processing Progress</span>
+                <strong id="modalPercent">100%</strong>
+            </div>
+
+            <div class="progress-bar">
+                <div
+                    class="progress-fill"
+                    id="modalProgress"
+                    style="width: 100%;"
+                ></div>
+            </div>
+
+        </div>
+
+
+        <div class="modal-info-grid">
+
+            <div>
+                <span>Document Analysis</span>
+                <strong>Completed</strong>
+            </div>
+
+            <div>
+                <span>Topic Extraction</span>
+                <strong>Completed</strong>
+            </div>
+
+            <div>
+                <span>Quiz Generation</span>
+                <strong>Completed</strong>
+            </div>
+
+            <div>
+                <span>Processing Status</span>
+                <strong id="modalStatus">
+                    Completed
+                </strong>
+            </div>
+
+        </div>
+
+
+        <button class="modal-button" id="modalButton">
+            Close
+        </button>
+
+    </div>
+
+</div>
+
+
+<script src="../js/processing.js"></script>
+
+</body>
+</html>

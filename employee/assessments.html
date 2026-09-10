@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assessments | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/assessments.css">
+</head>
+
+<body>
+
+<div class="dashboard-layout">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="sidebar-logo">
+            <div class="logo-box">AI</div>
+
+            <div>
+                <h2>AI Learning</h2>
+                <span>Employee Portal</span>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="dashboard.html">
+                <span>▣</span>
+                Dashboard
+            </a>
+
+            <a href="competencies.html">
+                <span>◆</span>
+                Competencies
+            </a>
+
+            <a href="assessments.html" class="active">
+                <span>✓</span>
+                Assessments
+            </a>
+
+            <a href="materials.html">
+                <span>▤</span>
+                Learning Materials
+            </a>
+
+            <a href="quizzes.html">
+                <span>?</span>
+                Quizzes
+            </a>
+
+            <a href="recommendations.html">
+                <span>★</span>
+                Recommendations
+            </a>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <a href="#">
+                <span>◉</span>
+                Profile
+            </a>
+
+            <a href="../index.html" id="logoutBtn">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Header -->
+        <header class="top-header">
+
+            <div>
+                <h1>Assessments</h1>
+                <p>Evaluate your skills and competency levels</p>
+            </div>
+
+            <div class="header-user">
+
+                <div class="notification">
+                    🔔
+                </div>
+
+                <div class="user-avatar">
+                    P
+                </div>
+
+                <div class="user-info">
+                    <strong>Prabhat Raj</strong>
+                    <span>Employee</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Page -->
+        <section class="assessments-page">
+
+
+            <!-- Stats -->
+            <div class="assessment-stats">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon blue">
+                        📋
+                    </div>
+
+                    <div>
+                        <span>Total Assessments</span>
+                        <strong>6</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>Completed</span>
+                        <strong>4</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ⏳
+                    </div>
+
+                    <div>
+                        <span>Pending</span>
+                        <strong>2</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ★
+                    </div>
+
+                    <div>
+                        <span>Average Score</span>
+                        <strong>76%</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Assessment Header -->
+            <div class="page-section-header">
+
+                <div>
+                    <h2>My Assessments</h2>
+                    <p>View and complete your assigned assessments.</p>
+                </div>
+
+                <select id="statusFilter">
+
+                    <option value="all">All Assessments</option>
+                    <option value="completed">Completed</option>
+                    <option value="pending">Pending</option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Assessment List -->
+            <div class="assessment-list">
+
+
+                <!-- Assessment 1 -->
+                <div class="assessment-card" data-status="completed">
+
+                    <div class="assessment-main">
+
+                        <div class="assessment-icon">
+                            DA
+                        </div>
+
+                        <div class="assessment-info">
+
+                            <h3>Data Analysis Assessment</h3>
+
+                            <p>
+                                Test your knowledge of data analysis,
+                                interpretation and visualization.
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>📋 20 Questions</span>
+
+                                <span>⏱ 30 Minutes</span>
+
+                                <span>Completed: 05 Sep 2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="assessment-right">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="score">
+                            85%
+                        </strong>
+
+                        <button class="view-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Assessment 2 -->
+                <div class="assessment-card" data-status="completed">
+
+                    <div class="assessment-main">
+
+                        <div class="assessment-icon">
+                            ST
+                        </div>
+
+                        <div class="assessment-info">
+
+                            <h3>Statistics Fundamentals</h3>
+
+                            <p>
+                                Evaluate your understanding of basic
+                                statistical concepts and methods.
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>📋 25 Questions</span>
+
+                                <span>⏱ 35 Minutes</span>
+
+                                <span>Completed: 02 Sep 2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="assessment-right">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="score">
+                            82%
+                        </strong>
+
+                        <button class="view-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Assessment 3 -->
+                <div class="assessment-card" data-status="pending">
+
+                    <div class="assessment-main">
+
+                        <div class="assessment-icon">
+                            DQ
+                        </div>
+
+                        <div class="assessment-info">
+
+                            <h3>Data Quality Assessment</h3>
+
+                            <p>
+                                Assess your knowledge of data quality,
+                                validation and accuracy.
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>📋 20 Questions</span>
+
+                                <span>⏱ 30 Minutes</span>
+
+                                <span>Due: 15 Sep 2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="assessment-right">
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                        <button class="start-btn">
+                            Start Assessment
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Assessment 4 -->
+                <div class="assessment-card" data-status="completed">
+
+                    <div class="assessment-main">
+
+                        <div class="assessment-icon">
+                            CO
+                        </div>
+
+                        <div class="assessment-info">
+
+                            <h3>Statistical Communication</h3>
+
+                            <p>
+                                Test your ability to communicate
+                                statistical findings effectively.
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>📋 15 Questions</span>
+
+                                <span>⏱ 25 Minutes</span>
+
+                                <span>Completed: 28 Aug 2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="assessment-right">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="score">
+                            55%
+                        </strong>
+
+                        <button class="view-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Assessment 5 -->
+                <div class="assessment-card" data-status="pending">
+
+                    <div class="assessment-main">
+
+                        <div class="assessment-icon">
+                            DM
+                        </div>
+
+                        <div class="assessment-info">
+
+                            <h3>Data Management Assessment</h3>
+
+                            <p>
+                                Evaluate your understanding of data
+                                management and organization.
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>📋 20 Questions</span>
+
+                                <span>⏱ 30 Minutes</span>
+
+                                <span>Due: 20 Sep 2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="assessment-right">
+
+                        <span class="status pending">
+                            Pending
+                        </span>
+
+                        <button class="start-btn">
+                            Start Assessment
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Assessment 6 -->
+                <div class="assessment-card" data-status="completed">
+
+                    <div class="assessment-main">
+
+                        <div class="assessment-icon">
+                            RS
+                        </div>
+
+                        <div class="assessment-info">
+
+                            <h3>Research Methods</h3>
+
+                            <p>
+                                Test your knowledge of research methods
+                                and statistical research practices.
+                            </p>
+
+                            <div class="assessment-meta">
+
+                                <span>📋 20 Questions</span>
+
+                                <span>⏱ 30 Minutes</span>
+
+                                <span>Completed: 20 Aug 2026</span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="assessment-right">
+
+                        <span class="status completed">
+                            Completed
+                        </span>
+
+                        <strong class="score">
+                            72%
+                        </strong>
+
+                        <button class="view-btn">
+                            View Result
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="../js/assessments.js"></script>
+
+</body>
+</html>

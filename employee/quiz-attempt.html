@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Quiz Attempt | AI Learning Platform</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/quiz-attempt.css">
+</head>
+
+<body>
+
+<div class="quiz-layout">
+
+    <!-- Quiz Header -->
+    <header class="quiz-header">
+
+        <div class="quiz-brand">
+            <div class="logo-box">AI</div>
+
+            <div>
+                <h2>AI Learning Platform</h2>
+                <span>Employee Portal</span>
+            </div>
+        </div>
+
+        <div class="quiz-title">
+            <strong>Data Quality Fundamentals</strong>
+            <span>Knowledge Assessment</span>
+        </div>
+
+        <div class="timer-box">
+
+            <span>Time Remaining</span>
+
+            <strong id="timer">
+                14:32
+            </strong>
+
+        </div>
+
+    </header>
+
+
+    <!-- Main Quiz -->
+    <main class="quiz-main">
+
+        <!-- Progress -->
+        <div class="quiz-progress-section">
+
+            <div class="progress-top">
+
+                <span id="questionCounter">
+                    Question 1 of 10
+                </span>
+
+                <span id="progressPercentage">
+                    10%
+                </span>
+
+            </div>
+
+            <div class="quiz-progress-bar">
+
+                <div
+                    id="quizProgress"
+                    class="quiz-progress-fill"
+                    style="width: 10%;">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Question Card -->
+        <section class="question-card">
+
+            <div class="question-label">
+                Question 1
+            </div>
+
+            <h1 id="questionText">
+                What is data quality?
+            </h1>
+
+            <p class="question-description">
+                Select the most appropriate answer.
+            </p>
+
+
+            <!-- Options -->
+            <div class="options-container">
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="0">
+
+                    <span class="option-letter">
+                        A
+                    </span>
+
+                    <span class="option-text">
+                        The accuracy, completeness and reliability
+                        of data.
+                    </span>
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="1">
+
+                    <span class="option-letter">
+                        B
+                    </span>
+
+                    <span class="option-text">
+                        The amount of data stored in a database.
+                    </span>
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="2">
+
+                    <span class="option-letter">
+                        C
+                    </span>
+
+                    <span class="option-text">
+                        The size of a dataset.
+                    </span>
+
+                </label>
+
+
+                <label class="option">
+
+                    <input
+                        type="radio"
+                        name="answer"
+                        value="3">
+
+                    <span class="option-letter">
+                        D
+                    </span>
+
+                    <span class="option-text">
+                        The number of users accessing the data.
+                    </span>
+
+                </label>
+
+            </div>
+
+        </section>
+
+
+        <!-- Bottom Navigation -->
+        <div class="quiz-navigation">
+
+            <button
+                id="previousBtn"
+                class="previous-btn"
+                disabled>
+                ← Previous
+            </button>
+
+            <button
+                id="nextBtn"
+                class="next-btn">
+                Next →
+            </button>
+
+            <button
+                id="submitBtn"
+                class="submit-btn"
+                style="display: none;">
+                Submit Quiz
+            </button>
+
+        </div>
+
+
+        <!-- Question Navigation -->
+        <div class="question-navigation">
+
+            <div class="navigation-title">
+                <h3>Questions</h3>
+
+                <span>
+                    Click a number to jump to a question
+                </span>
+            </div>
+
+            <div
+                id="questionNumbers"
+                class="question-numbers">
+
+                <button class="question-number current">
+                    1
+                </button>
+
+                <button class="question-number">
+                    2
+                </button>
+
+                <button class="question-number">
+                    3
+                </button>
+
+                <button class="question-number">
+                    4
+                </button>
+
+                <button class="question-number">
+                    5
+                </button>
+
+                <button class="question-number">
+                    6
+                </button>
+
+                <button class="question-number">
+                    7
+                </button>
+
+                <button class="question-number">
+                    8
+                </button>
+
+                <button class="question-number">
+                    9
+                </button>
+
+                <button class="question-number">
+                    10
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- Exit -->
+        <div class="exit-section">
+
+            <button id="exitBtn">
+                Exit Quiz
+            </button>
+
+        </div>
+
+    </main>
+
+</div>
+
+
+<script src="../js/quiz-attempt.js"></script>
+
+</body>
+</html>

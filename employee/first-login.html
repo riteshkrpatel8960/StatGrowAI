@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+```
+<title>Complete Profile | AI Learning Platform</title>
+
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/first-login.css">
+```
+
+</head>
+
+<body>
+
+```
+<main class="profile-page">
+
+    <section class="profile-card">
+
+        <!-- Header -->
+
+        <div class="profile-header">
+
+            <div class="logo">
+                AI
+            </div>
+
+            <h1>Complete Your Profile</h1>
+
+            <p>
+                Tell us about yourself to personalize your learning experience.
+            </p>
+
+        </div>
+
+
+        <!-- Progress -->
+
+        <div class="progress-section">
+
+            <div class="progress-info">
+                <span>Profile Setup</span>
+                <span>Step 1 of 1</span>
+            </div>
+
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+
+        </div>
+
+
+        <!-- Form -->
+
+        <form id="profileForm">
+
+            <div class="form-group">
+
+                <label for="fullName">
+                    Full Name
+                </label>
+
+                <input
+                    type="text"
+                    id="fullName"
+                    placeholder="Enter your full name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+
+                    <label for="role">
+                        Job Role
+                    </label>
+
+                    <select id="role" required>
+
+                        <option value="">
+                            Select your job role
+                        </option>
+
+                        <option value="statistician">
+                            Statistician
+                        </option>
+
+                        <option value="data-analyst">
+                            Data Analyst
+                        </option>
+
+                        <option value="researcher">
+                            Researcher
+                        </option>
+
+                        <option value="officer">
+                            Statistical Officer
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="department">
+                        Department
+                    </label>
+
+                    <select id="department" required>
+
+                        <option value="">
+                            Select department
+                        </option>
+
+                        <option value="statistics">
+                            Statistics
+                        </option>
+
+                        <option value="data">
+                            Data & Analytics
+                        </option>
+
+                        <option value="research">
+                            Research
+                        </option>
+
+                        <option value="administration">
+                            Administration
+                        </option>
+
+                        <option value="other">
+                            Other
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="experience">
+                    Experience Level
+                </label>
+
+                <select id="experience" required>
+
+                    <option value="">
+                        Select experience level
+                    </option>
+
+                    <option value="beginner">
+                        Beginner
+                    </option>
+
+                    <option value="intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="advanced">
+                        Advanced
+                    </option>
+
+                    <option value="expert">
+                        Expert
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="continue-btn"
+            >
+                Continue
+            </button>
+
+
+            <p id="profileMessage"></p>
+
+        </form>
+
+
+        <!-- Footer -->
+
+        <div class="profile-footer">
+
+            <p>
+                Your information helps us personalize your learning pathway.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+
+<script src="../js/first-login.js"></script>
+```
+
+</body>
+</html>
