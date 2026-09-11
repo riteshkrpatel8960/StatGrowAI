@@ -1,6 +1,7 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 from pydantic import BaseModel
 
+from database import get_db_connection
 from routers.auth import get_current_user
 
 
@@ -15,40 +16,50 @@ class Competency(BaseModel):
     score: float
 
 
-@router.post("/")
-def create_competency(
-    competency: Competency,
-    user: dict = Depends(get_current_user)
-):
-    return {
-        "message": "Competency created successfully",
-        "competency": competency,
-        "user": user
-    }
-
 @router.get("/")
 def get_competencies(
     user: dict = Depends(get_current_user)
 ):
-    competencies = [
-        {
-            "id": 1,
-            "name": "Python Programming",
-            "score": 75
-        },
-        {
-            "id": 2,
-            "name": "Data Structures",
-            "score": 60
-        },
-        {
-            "id": 3,
-            "name": "Database Management",
-            "score": 85
-        }
-    ]
+    connection = None
+    cursor = None
 
-    return {
-        "message": "Competencies retrieved successfully",
-        "competencies": competencies
-    }
+    try:
+        connection = get_db_connection()
+        cursor = connection.cursor(dictionary=True)
+
+        cursor.execute(
+            """
+            SELECT
+                uc.competency_id AS id,
+                c.name AS name,
+                uc.score AS score
+            FROM user_competencies uc
+            JOIN competencies c
+                ON uc.competency_id = c.id
+            JOIN users u
+                ON uc.user_id = u.id
+            WHERE u.email = %s
+            ORDER BY c.name
+            """,
+            (user["email"],)
+        )
+
+        competencies = cursor.fetchall()
+
+        return {
+            "message": "Competencies retrieved successfully",
+            "competencies": competencies
+        }
+
+    except Exception as e:
+        raise HTTPException(
+            status_code=500,
+            detail=f"Failed to retrieve competencies: {str(e)}"
+        )
+
+    finally:
+        if cursor:
+            cursor.close()
+
+        if connection:
+            connection.close()
