@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -8,23 +10,32 @@
 
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/recommendations.css">
+
 </head>
+
 
 <body>
 
 <div class="dashboard-layout">
 
+
     <!-- Sidebar -->
+
     <aside class="sidebar">
 
         <div class="sidebar-logo">
-            <div class="logo-box">AI</div>
+
+            <div class="logo-box">
+                AI
+            </div>
 
             <div>
                 <h2>AI Learning</h2>
                 <span>Employee Portal</span>
             </div>
+
         </div>
+
 
         <nav class="sidebar-nav">
 
@@ -60,6 +71,7 @@
 
         </nav>
 
+
         <div class="sidebar-bottom">
 
             <a href="#">
@@ -77,16 +89,28 @@
     </aside>
 
 
+
     <!-- Main Content -->
+
     <main class="main-content">
 
+
         <!-- Header -->
+
         <header class="top-header">
 
             <div>
-                <h1>Recommendations</h1>
-                <p>Personalized learning recommendations for you</p>
+
+                <h1>
+                    Recommendations
+                </h1>
+
+                <p>
+                    Personalized learning recommendations for you
+                </p>
+
             </div>
+
 
             <div class="header-user">
 
@@ -94,13 +118,22 @@
                     🔔
                 </div>
 
+
                 <div class="user-avatar">
                     P
                 </div>
 
+
                 <div class="user-info">
-                    <strong>Prabhat Raj</strong>
-                    <span>Employee</span>
+
+                    <strong>
+                        Prabhat Raj
+                    </strong>
+
+                    <span>
+                        Employee
+                    </span>
+
                 </div>
 
             </div>
@@ -108,16 +141,20 @@
         </header>
 
 
+
         <!-- Page -->
+
         <section class="recommendations-page">
 
 
             <!-- AI Banner -->
+
             <div class="ai-banner">
 
                 <div class="ai-banner-icon">
                     AI
                 </div>
+
 
                 <div class="ai-banner-content">
 
@@ -136,149 +173,52 @@
             </div>
 
 
+
             <!-- Skill Gap -->
+
             <div class="section-heading">
 
                 <div>
-                    <h2>Priority Skill Gaps</h2>
+
+                    <h2>
+                        Priority Skill Gaps
+                    </h2>
 
                     <p>
                         Focus on these areas to improve your overall competency.
                     </p>
-                </div>
-
-            </div>
-
-
-            <div class="skill-gap-grid">
-
-
-                <!-- Gap 1 -->
-                <div class="skill-gap-card">
-
-                    <div class="gap-top">
-
-                        <div class="gap-icon red">
-                            DQ
-                        </div>
-
-                        <span class="priority high">
-                            High Priority
-                        </span>
-
-                    </div>
-
-                    <h3>Data Quality</h3>
-
-                    <div class="gap-score">
-
-                        <span>Current Score</span>
-
-                        <strong>48%</strong>
-
-                    </div>
-
-                    <div class="gap-progress">
-
-                        <div style="width: 48%;"></div>
-
-                    </div>
-
-                    <p>
-                        Target competency: <strong>75%</strong>
-                    </p>
-
-                </div>
-
-
-                <!-- Gap 2 -->
-                <div class="skill-gap-card">
-
-                    <div class="gap-top">
-
-                        <div class="gap-icon orange">
-                            CO
-                        </div>
-
-                        <span class="priority medium">
-                            Medium Priority
-                        </span>
-
-                    </div>
-
-                    <h3>Communication</h3>
-
-                    <div class="gap-score">
-
-                        <span>Current Score</span>
-
-                        <strong>55%</strong>
-
-                    </div>
-
-                    <div class="gap-progress">
-
-                        <div style="width: 55%;"></div>
-
-                    </div>
-
-                    <p>
-                        Target competency: <strong>75%</strong>
-                    </p>
-
-                </div>
-
-
-                <!-- Gap 3 -->
-                <div class="skill-gap-card">
-
-                    <div class="gap-top">
-
-                        <div class="gap-icon yellow">
-                            DM
-                        </div>
-
-                        <span class="priority medium">
-                            Medium Priority
-                        </span>
-
-                    </div>
-
-                    <h3>Data Management</h3>
-
-                    <div class="gap-score">
-
-                        <span>Current Score</span>
-
-                        <strong>58%</strong>
-
-                    </div>
-
-                    <div class="gap-progress">
-
-                        <div style="width: 58%;"></div>
-
-                    </div>
-
-                    <p>
-                        Target competency: <strong>75%</strong>
-                    </p>
 
                 </div>
 
             </div>
+
+
+            <div
+                class="skill-gap-grid"
+                id="skillGapGrid">
+
+                <!-- Skill gaps will appear here -->
+
+            </div>
+
 
 
             <!-- Recommended Learning -->
+
             <div class="section-heading learning-heading">
 
                 <div>
-                    <h2>Recommended Learning</h2>
+
+                    <h2>
+                        Recommended Learning
+                    </h2>
 
                     <p>
                         Learning resources selected based on your skill gaps.
                     </p>
+
                 </div>
+
 
                 <select id="recommendationFilter">
 
@@ -286,16 +226,20 @@
                         All Recommendations
                     </option>
 
-                    <option value="course">
-                        Courses
-                    </option>
-
-                    <option value="document">
+                    <option value="PDF">
                         Documents
                     </option>
 
-                    <option value="video">
+                    <option value="PPT">
+                        Presentations
+                    </option>
+
+                    <option value="Video">
                         Videos
+                    </option>
+
+                    <option value="Course">
+                        Courses
                     </option>
 
                 </select>
@@ -303,307 +247,27 @@
             </div>
 
 
+
             <!-- Recommendations -->
-            <div class="recommendation-grid">
 
+            <div
+                class="recommendation-grid"
+                id="recommendationGrid">
 
-                <!-- Recommendation 1 -->
-                <div class="recommendation-card"
-                     data-type="course">
-
-                    <div class="recommendation-image data-quality">
-                        DQ
-                    </div>
-
-                    <div class="recommendation-content">
-
-                        <div class="recommendation-top">
-
-                            <span class="resource-type">
-                                Course
-                            </span>
-
-                            <span class="match">
-                                95% Match
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Data Quality Fundamentals
-                        </h3>
-
-                        <p>
-                            Learn data validation, accuracy,
-                            completeness and consistency.
-                        </p>
-
-                        <div class="resource-meta">
-
-                            <span>📚 6 Modules</span>
-
-                            <span>⏱ 3 Hours</span>
-
-                        </div>
-
-                        <button class="learn-btn">
-                            Start Learning
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Recommendation 2 -->
-                <div class="recommendation-card"
-                     data-type="document">
-
-                    <div class="recommendation-image data-quality">
-                        PDF
-                    </div>
-
-                    <div class="recommendation-content">
-
-                        <div class="recommendation-top">
-
-                            <span class="resource-type">
-                                Document
-                            </span>
-
-                            <span class="match">
-                                91% Match
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Data Validation Best Practices
-                        </h3>
-
-                        <p>
-                            A practical guide to validating
-                            statistical datasets.
-                        </p>
-
-                        <div class="resource-meta">
-
-                            <span>📄 PDF</span>
-
-                            <span>⏱ 45 Minutes</span>
-
-                        </div>
-
-                        <button class="learn-btn">
-                            Open Material
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Recommendation 3 -->
-                <div class="recommendation-card"
-                     data-type="video">
-
-                    <div class="recommendation-image communication">
-                        ▶
-                    </div>
-
-                    <div class="recommendation-content">
-
-                        <div class="recommendation-top">
-
-                            <span class="resource-type">
-                                Video
-                            </span>
-
-                            <span class="match">
-                                88% Match
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Communicating Statistical Insights
-                        </h3>
-
-                        <p>
-                            Learn how to present statistical
-                            results clearly to different audiences.
-                        </p>
-
-                        <div class="resource-meta">
-
-                            <span>🎥 Video</span>
-
-                            <span>⏱ 35 Minutes</span>
-
-                        </div>
-
-                        <button class="learn-btn">
-                            Watch Video
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Recommendation 4 -->
-                <div class="recommendation-card"
-                     data-type="course">
-
-                    <div class="recommendation-image data-management">
-                        DM
-                    </div>
-
-                    <div class="recommendation-content">
-
-                        <div class="recommendation-top">
-
-                            <span class="resource-type">
-                                Course
-                            </span>
-
-                            <span class="match">
-                                86% Match
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Advanced Data Management
-                        </h3>
-
-                        <p>
-                            Improve your skills in organizing,
-                            storing and managing datasets.
-                        </p>
-
-                        <div class="resource-meta">
-
-                            <span>📚 8 Modules</span>
-
-                            <span>⏱ 5 Hours</span>
-
-                        </div>
-
-                        <button class="learn-btn">
-                            Start Learning
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Recommendation 5 -->
-                <div class="recommendation-card"
-                     data-type="document">
-
-                    <div class="recommendation-image communication">
-                        DOC
-                    </div>
-
-                    <div class="recommendation-content">
-
-                        <div class="recommendation-top">
-
-                            <span class="resource-type">
-                                Document
-                            </span>
-
-                            <span class="match">
-                                82% Match
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Statistical Reporting Guide
-                        </h3>
-
-                        <p>
-                            Learn techniques for writing clear
-                            and effective statistical reports.
-                        </p>
-
-                        <div class="resource-meta">
-
-                            <span>📄 PDF</span>
-
-                            <span>⏱ 30 Minutes</span>
-
-                        </div>
-
-                        <button class="learn-btn">
-                            Open Material
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Recommendation 6 -->
-                <div class="recommendation-card"
-                     data-type="video">
-
-                    <div class="recommendation-image data-management">
-                        ▶
-                    </div>
-
-                    <div class="recommendation-content">
-
-                        <div class="recommendation-top">
-
-                            <span class="resource-type">
-                                Video
-                            </span>
-
-                            <span class="match">
-                                79% Match
-                            </span>
-
-                        </div>
-
-                        <h3>
-                            Data Management Essentials
-                        </h3>
-
-                        <p>
-                            Understand practical data management
-                            techniques for statistical work.
-                        </p>
-
-                        <div class="resource-meta">
-
-                            <span>🎥 Video</span>
-
-                            <span>⏱ 40 Minutes</span>
-
-                        </div>
-
-                        <button class="learn-btn">
-                            Watch Video
-                        </button>
-
-                    </div>
-
-                </div>
-
+                <!-- Backend recommendations will appear here -->
 
             </div>
 
 
+
             <!-- AI Explanation -->
+
             <div class="ai-explanation">
 
                 <div class="explanation-icon">
                     AI
                 </div>
+
 
                 <div>
 
@@ -611,25 +275,33 @@
                         Why are these recommended?
                     </h3>
 
-                    <p>
-                        These resources are recommended because your
-                        current competency scores indicate opportunities
-                        for improvement in Data Quality, Communication
-                        and Data Management.
+                    <p id="recommendationExplanation">
+                        These learning resources are selected based
+                        on your competency and learning needs.
                     </p>
 
                 </div>
 
             </div>
 
+
         </section>
 
+
     </main>
+
 
 </div>
 
 
+
+<!-- JavaScript -->
+
+<script src="../js/api.js"></script>
+
 <script src="../js/recommendations.js"></script>
 
+
 </body>
+
 </html>

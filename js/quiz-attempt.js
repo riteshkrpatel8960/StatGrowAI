@@ -1,132 +1,19 @@
 document.addEventListener("DOMContentLoaded", function () {
 
-    /* Quiz Questions */
+    const token = localStorage.getItem("access_token");
 
-    const questions = [
+    if (!token) {
+        window.location.href = "../index.html";
+        return;
+    }
 
-        {
-            question: "What is data quality?",
-            options: [
-                "The accuracy, completeness and reliability of data.",
-                "The amount of data stored in a database.",
-                "The size of a dataset.",
-                "The number of users accessing the data."
-            ],
-            answer: 0
-        },
+    const quizId =
+        localStorage.getItem("selected_quiz_id") || "1";
 
-        {
-            question: "Which characteristic means that data contains all required information?",
-            options: [
-                "Accuracy",
-                "Completeness",
-                "Timeliness",
-                "Uniqueness"
-            ],
-            answer: 1
-        },
-
-        {
-            question: "What does data accuracy mean?",
-            options: [
-                "Data is available quickly.",
-                "Data contains no duplicate records.",
-                "Data correctly represents the real-world value.",
-                "Data is stored in a large database."
-            ],
-            answer: 2
-        },
-
-        {
-            question: "Which practice helps identify incorrect data?",
-            options: [
-                "Data validation",
-                "Data deletion",
-                "Data duplication",
-                "Data hiding"
-            ],
-            answer: 0
-        },
-
-        {
-            question: "What is duplicate data?",
-            options: [
-                "Missing data.",
-                "Repeated records representing the same information.",
-                "Encrypted data.",
-                "Archived data."
-            ],
-            answer: 1
-        },
-
-        {
-            question: "Which factor describes whether data is available when needed?",
-            options: [
-                "Timeliness",
-                "Accuracy",
-                "Uniqueness",
-                "Completeness"
-            ],
-            answer: 0
-        },
-
-        {
-            question: "Why is data quality important?",
-            options: [
-                "It increases unnecessary storage.",
-                "It supports reliable analysis and decision-making.",
-                "It makes databases larger.",
-                "It removes the need for analysis."
-            ],
-            answer: 1
-        },
-
-        {
-            question: "Which process checks whether data follows predefined rules?",
-            options: [
-                "Data validation",
-                "Data visualization",
-                "Data compression",
-                "Data backup"
-            ],
-            answer: 0
-        },
-
-        {
-            question: "What is data consistency?",
-            options: [
-                "Data has different values everywhere.",
-                "Data follows the same meaning and format across systems.",
-                "Data is always deleted.",
-                "Data is stored without structure."
-            ],
-            answer: 1
-        },
-
-        {
-            question: "Which is an example of poor data quality?",
-            options: [
-                "Correct employee ID",
-                "Complete customer record",
-                "Duplicate employee records",
-                "Validated statistical data"
-            ],
-            answer: 2
-        }
-
-    ];
-
-
+    let questions = [];
     let currentQuestion = 0;
+    let userAnswers = {};
 
-    let userAnswers =
-        new Array(questions.length).fill(null);
-
-
-    /* Elements */
-
-    const questionText =
-        document.getElementById("questionText");
 
     const questionCounter =
         document.getElementById("questionCounter");
@@ -136,6 +23,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const quizProgress =
         document.getElementById("quizProgress");
+
+    const questionLabel =
+        document.querySelector(".question-label");
+
+    const questionText =
+        document.getElementById("questionText");
+
+    const optionsContainer =
+        document.querySelector(".options-container");
 
     const previousBtn =
         document.getElementById("previousBtn");
@@ -147,377 +43,524 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("submitBtn");
 
     const questionNumbers =
-        document.querySelectorAll(".question-number");
+        document.getElementById("questionNumbers");
 
-    const timer =
-        document.getElementById("timer");
+    const exitBtn =
+        document.getElementById("exitBtn");
 
 
-    /* Load Question */
+    // Load quiz information
 
-    function loadQuestion() {
+    async function loadQuiz() {
+
+        try {
+
+            const data = await apiRequest(
+                `/quizzes/${quizId}`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                }
+            );
+
+            console.log("Quiz data:", data);
+
+            if (data.quiz) {
+
+                const title =
+                    document.querySelector(
+                        ".quiz-title strong"
+                    );
+
+                const difficulty =
+                    document.querySelector(
+                        ".quiz-title span"
+                    );
+
+                if (title) {
+                    title.textContent =
+                        data.quiz.title;
+                }
+
+                if (difficulty) {
+                    difficulty.textContent =
+                        `${data.quiz.difficulty} difficulty`;
+                }
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Quiz loading failed:",
+                error
+            );
+        }
+    }
+
+
+    // Load questions from backend
+
+    async function loadQuestions() {
+
+        try {
+
+            const data = await apiRequest(
+                `/quizzes/${quizId}/questions`,
+                {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                }
+            );
+
+            console.log(
+                "Quiz questions data:",
+                data
+            );
+
+            questions =
+                data.questions || [];
+
+            if (questions.length === 0) {
+
+                questionText.textContent =
+                    "No questions available.";
+
+                return;
+            }
+
+            createQuestionNumbers();
+
+            showQuestion(0);
+
+        } catch (error) {
+
+            console.error(
+                "Questions loading failed:",
+                error
+            );
+
+            questionText.textContent =
+                "Unable to load quiz questions.";
+        }
+    }
+
+
+    // Show question
+
+    function showQuestion(index) {
 
         const question =
-            questions[currentQuestion];
+            questions[index];
+
+        if (!question) {
+            return;
+        }
+
+        currentQuestion = index;
+
+
+        questionCounter.textContent =
+            `Question ${index + 1} of ${questions.length}`;
+
+
+        questionLabel.textContent =
+            `Question ${index + 1}`;
 
 
         questionText.textContent =
             question.question;
 
 
-        questionCounter.textContent =
-            `Question ${currentQuestion + 1} of ${questions.length}`;
-
-
         const percentage =
             Math.round(
-                ((currentQuestion + 1) / questions.length) * 100
+                ((index + 1) / questions.length) * 100
             );
 
 
         progressPercentage.textContent =
             `${percentage}%`;
 
+
         quizProgress.style.width =
             `${percentage}%`;
-
-
-        updateOptions(question);
-
-
-        previousBtn.disabled =
-            currentQuestion === 0;
-
-
-        if (currentQuestion === questions.length - 1) {
-
-            nextBtn.style.display = "none";
-
-            submitBtn.style.display = "block";
-
-        } else {
-
-            nextBtn.style.display = "block";
-
-            submitBtn.style.display = "none";
-
-        }
-
-
-        updateQuestionNumbers();
-
-    }
-
-
-    /* Update Options */
-
-    function updateOptions(question) {
-
-        const optionsContainer =
-            document.querySelector(".options-container");
 
 
         optionsContainer.innerHTML = "";
 
 
-        question.options.forEach(function (optionText, index) {
+        question.options.forEach(
+            function (option) {
 
-            const label =
-                document.createElement("label");
+                const label =
+                    document.createElement("label");
 
-            label.className = "option";
+                label.className =
+                    "option";
 
 
-            if (userAnswers[currentQuestion] === index) {
+                const input =
+                    document.createElement("input");
 
-                label.classList.add("selected");
+                input.type =
+                    "radio";
 
+                input.name =
+                    "answer";
+
+                input.value =
+                    option.label;
+
+
+                if (
+                    userAnswers[question.id] ===
+                    option.label
+                ) {
+
+                    input.checked = true;
+                }
+
+
+                const letter =
+                    document.createElement("span");
+
+                letter.className =
+                    "option-letter";
+
+                letter.textContent =
+                    option.label;
+
+
+                const text =
+                    document.createElement("span");
+
+                text.className =
+                    "option-text";
+
+                text.textContent =
+                    option.text;
+
+
+                label.appendChild(input);
+                label.appendChild(letter);
+                label.appendChild(text);
+
+                optionsContainer.appendChild(label);
+
+
+                input.addEventListener(
+                    "change",
+                    function () {
+
+                        userAnswers[question.id] =
+                            input.value;
+
+                        updateQuestionNumbers();
+                    }
+                );
             }
+        );
 
 
-            label.innerHTML = `
-
-                <input
-                    type="radio"
-                    name="answer"
-                    value="${index}">
-
-                <span class="option-letter">
-                    ${String.fromCharCode(65 + index)}
-                </span>
-
-                <span class="option-text">
-                    ${optionText}
-                </span>
-
-            `;
+        previousBtn.disabled =
+            index === 0;
 
 
-            optionsContainer.appendChild(label);
+        if (index === questions.length - 1) {
+
+            nextBtn.style.display =
+                "none";
+
+            submitBtn.style.display =
+                "inline-block";
+
+        } else {
+
+            nextBtn.style.display =
+                "inline-block";
+
+            submitBtn.style.display =
+                "none";
+        }
 
 
-            const radio =
-                label.querySelector("input");
-
-
-            radio.addEventListener("change", function () {
-
-                userAnswers[currentQuestion] =
-                    Number(this.value);
-
-
-                document
-                    .querySelectorAll(".option")
-                    .forEach(function (item) {
-
-                        item.classList.remove("selected");
-
-                    });
-
-
-                label.classList.add("selected");
-
-
-                updateQuestionNumbers();
-
-            });
-
-        });
-
+        updateQuestionNumbers();
     }
 
 
-    /* Question Numbers */
+    // Question numbers
 
-    function updateQuestionNumbers() {
+    function createQuestionNumbers() {
 
-        questionNumbers.forEach(function (button, index) {
-
-            button.classList.remove("current");
-
-            button.classList.remove("answered");
+        questionNumbers.innerHTML = "";
 
 
-            if (index === currentQuestion) {
+        questions.forEach(
+            function (question, index) {
 
-                button.classList.add("current");
+                const button =
+                    document.createElement("button");
 
-            }
+                button.className =
+                    "question-number";
 
-
-            if (userAnswers[index] !== null) {
-
-                button.classList.add("answered");
-
-            }
-
-        });
-
-    }
+                button.textContent =
+                    index + 1;
 
 
-    /* Next */
+                button.addEventListener(
+                    "click",
+                    function () {
 
-    nextBtn.addEventListener("click", function () {
+                        saveCurrentAnswer();
 
-        if (userAnswers[currentQuestion] === null) {
-
-            alert("Please select an answer before continuing.");
-
-            return;
-
-        }
-
-
-        if (currentQuestion < questions.length - 1) {
-
-            currentQuestion++;
-
-            loadQuestion();
-
-        }
-
-    });
-
-
-    /* Previous */
-
-    previousBtn.addEventListener("click", function () {
-
-        if (currentQuestion > 0) {
-
-            currentQuestion--;
-
-            loadQuestion();
-
-        }
-
-    });
-
-
-    /* Question Number Click */
-
-    questionNumbers.forEach(function (button, index) {
-
-        button.addEventListener("click", function () {
-
-            currentQuestion = index;
-
-            loadQuestion();
-
-        });
-
-    });
-
-
-    /* Submit */
-
-    submitBtn.addEventListener("click", function () {
-
-        if (userAnswers[currentQuestion] === null) {
-
-            alert("Please select an answer before submitting.");
-
-            return;
-
-        }
-
-
-        const unanswered =
-            userAnswers.filter(function (answer) {
-
-                return answer === null;
-
-            }).length;
-
-
-        if (unanswered > 0) {
-
-            const proceed =
-                confirm(
-                    `You have ${unanswered} unanswered question(s).\n\nDo you want to submit anyway?`
+                        showQuestion(index);
+                    }
                 );
 
 
-            if (!proceed) {
-
-                return;
-
+                questionNumbers.appendChild(button);
             }
-
-        }
-
-
-        let score = 0;
-
-
-        questions.forEach(function (question, index) {
-
-            if (userAnswers[index] === question.answer) {
-
-                score++;
-
-            }
-
-        });
-
-
-        const percentage =
-            Math.round(
-                (score / questions.length) * 100
-            );
-
-
-        // Save result temporarily
-
-        localStorage.setItem(
-            "quizScore",
-            percentage
         );
 
-        localStorage.setItem(
-            "quizCorrect",
-            score
-        );
-
-        localStorage.setItem(
-            "quizTotal",
-            questions.length
-        );
-
-
-        window.location.href =
-            "result.html";
-
-    });
-
-
-    /* Timer */
-
-    let timeLeft = 14 * 60 + 32;
-
-
-    function updateTimer() {
-
-        const minutes =
-            Math.floor(timeLeft / 60);
-
-        const seconds =
-            timeLeft % 60;
-
-
-        timer.textContent =
-            `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
-
-
-        if (timeLeft <= 0) {
-
-            clearInterval(timerInterval);
-
-            alert("Time is up! Your quiz will be submitted.");
-
-            submitBtn.click();
-
-            return;
-
-        }
-
-
-        timeLeft--;
-
+        updateQuestionNumbers();
     }
 
 
-    const timerInterval =
-        setInterval(updateTimer, 1000);
+    function updateQuestionNumbers() {
 
-
-    /* Exit */
-
-    const exitBtn =
-        document.getElementById("exitBtn");
-
-
-    exitBtn.addEventListener("click", function () {
-
-        const confirmExit =
-            confirm(
-                "Are you sure you want to exit the quiz?\n\nYour progress may be lost."
+        const buttons =
+            questionNumbers.querySelectorAll(
+                ".question-number"
             );
 
 
-        if (confirmExit) {
+        buttons.forEach(
+            function (button, index) {
 
-            window.location.href =
-                "quizzes.html";
+                button.classList.remove("current");
+                button.classList.remove("answered");
 
+
+                if (index === currentQuestion) {
+
+                    button.classList.add(
+                        "current"
+                    );
+                }
+
+
+                const question =
+                    questions[index];
+
+
+                if (userAnswers[question.id]) {
+
+                    button.classList.add(
+                        "answered"
+                    );
+                }
+            }
+        );
+    }
+
+
+    function saveCurrentAnswer() {
+
+        const selected =
+            document.querySelector(
+                'input[name="answer"]:checked'
+            );
+
+
+        if (selected && questions[currentQuestion]) {
+
+            userAnswers[
+                questions[currentQuestion].id
+            ] = selected.value;
         }
+    }
 
-    });
+
+    // Next
+
+    nextBtn.addEventListener(
+        "click",
+        function () {
+
+            saveCurrentAnswer();
+
+            if (
+                currentQuestion <
+                questions.length - 1
+            ) {
+
+                showQuestion(
+                    currentQuestion + 1
+                );
+            }
+        }
+    );
 
 
-    /* Initial Load */
+    // Previous
 
-    loadQuestion();
+    previousBtn.addEventListener(
+        "click",
+        function () {
+
+            saveCurrentAnswer();
+
+            if (currentQuestion > 0) {
+
+                showQuestion(
+                    currentQuestion - 1
+                );
+            }
+        }
+    );
+
+
+    // Submit
+
+    submitBtn.addEventListener(
+        "click",
+        async function () {
+
+            saveCurrentAnswer();
+
+
+            const answers =
+                questions.map(
+                    function (question) {
+
+                        return {
+                            question_id:
+                                question.id,
+
+                            answer:
+                                userAnswers[
+                                    question.id
+                                ] || ""
+                        };
+                    }
+                );
+
+
+            const unanswered =
+                answers.filter(
+                    function (answer) {
+                        return answer.answer === "";
+                    }
+                ).length;
+
+
+            if (unanswered > 0) {
+
+                const confirmSubmit =
+                    confirm(
+                        `You have ${unanswered} unanswered question(s). Do you want to submit?`
+                    );
+
+                if (!confirmSubmit) {
+                    return;
+                }
+            }
+
+
+            submitBtn.disabled = true;
+
+            submitBtn.textContent =
+                "Submitting...";
+
+
+            try {
+
+                const data =
+                    await apiRequest(
+                        `/quizzes/${quizId}/submit`,
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Authorization":
+                                    `Bearer ${token}`
+                            },
+
+                            body: JSON.stringify({
+                                answers: answers
+                            })
+                        }
+                    );
+
+
+                console.log(
+                    "Quiz submission result:",
+                    data
+                );
+
+
+                localStorage.setItem(
+                    "quiz_result",
+                    JSON.stringify(data)
+                );
+
+
+                window.location.href =
+                    "result.html";
+
+
+            } catch (error) {
+
+                console.error(
+                    "Quiz submission failed:",
+                    error
+                );
+
+
+                alert(
+                    "Quiz submission failed. Please try again."
+                );
+
+
+                submitBtn.disabled = false;
+
+                submitBtn.textContent =
+                    "Submit Quiz";
+            }
+        }
+    );
+
+
+    // Exit
+
+    exitBtn.addEventListener(
+        "click",
+        function () {
+
+            if (
+                confirm(
+                    "Are you sure you want to exit the quiz?"
+                )
+            ) {
+
+                localStorage.removeItem(
+                    "selected_quiz_id"
+                );
+
+                window.location.href =
+                    "quizzes.html";
+            }
+        }
+    );
+
+
+    // Start
+
+    loadQuiz();
+    loadQuestions();
 
 });

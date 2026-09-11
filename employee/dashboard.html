@@ -1,35 +1,39 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Dashboard | AI Learning Platform</title>
+    <title>Dashboard | AI Learning Platform</title>
 
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/dashboard.css">
-```
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
 
 </head>
 
+
 <body>
 
-```
 <div class="dashboard-layout">
+
 
     <!-- Sidebar -->
 
     <aside class="sidebar">
 
         <div class="sidebar-logo">
-            <div class="logo">AI</div>
+
+            <div class="logo-box">
+                AI
+            </div>
 
             <div>
                 <h2>AI Learning</h2>
                 <span>Employee Portal</span>
             </div>
+
         </div>
 
 
@@ -75,7 +79,10 @@
                 Profile
             </a>
 
-            <a href="../index.html" class="nav-item logout">
+            <a
+                href="../index.html"
+                class="nav-item logout"
+                id="logoutBtn">
                 <span>↪</span>
                 Logout
             </a>
@@ -85,17 +92,26 @@
     </aside>
 
 
+
     <!-- Main Content -->
 
     <main class="main-content">
 
-        <!-- Top Header -->
+
+        <!-- Header -->
 
         <header class="top-header">
 
             <div>
-                <h1>Dashboard</h1>
-                <p>Your personalized learning overview</p>
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Your personalized learning overview
+                </p>
+
             </div>
 
 
@@ -105,15 +121,24 @@
                     🔔
                 </button>
 
+
                 <div class="user-profile">
 
                     <div class="user-avatar">
                         P
                     </div>
 
+
                     <div class="user-info">
-                        <strong>Prabhat Raj</strong>
-                        <span>Employee</span>
+
+                        <strong id="userName">
+                            Employee
+                        </strong>
+
+                        <span id="userRole">
+                            Employee
+                        </span>
+
                     </div>
 
                 </div>
@@ -123,13 +148,16 @@
         </header>
 
 
+
         <!-- Welcome Section -->
 
         <section class="welcome-section">
 
             <div>
 
-                <h2>Welcome back, Prabhat! 👋</h2>
+                <h2 id="welcomeMessage">
+                    Welcome back! 👋
+                </h2>
 
                 <p>
                     Continue your learning journey and improve your competencies.
@@ -137,16 +165,23 @@
 
             </div>
 
-            <button class="continue-learning-btn">
+
+            <button
+                class="continue-learning-btn"
+                id="continueLearningBtn">
                 Continue Learning
             </button>
 
         </section>
 
 
-        <!-- Statistics Cards -->
+
+        <!-- Statistics -->
 
         <section class="stats-grid">
+
+
+            <!-- Overall Competency -->
 
             <div class="stat-card">
 
@@ -155,13 +190,26 @@
                 </div>
 
                 <div>
-                    <p>Overall Competency</p>
-                    <h3>72%</h3>
-                    <span class="positive">↑ 5% this month</span>
+
+                    <p>
+                        Overall Competency
+                    </p>
+
+                    <h3 id="overallCompetency">
+                        0%
+                    </h3>
+
+                    <span class="positive">
+                        Based on current competency scores
+                    </span>
+
                 </div>
 
             </div>
 
+
+
+            <!-- Learning Progress -->
 
             <div class="stat-card">
 
@@ -170,13 +218,26 @@
                 </div>
 
                 <div>
-                    <p>Learning Progress</p>
-                    <h3>65%</h3>
-                    <span class="positive">↑ 8% this month</span>
+
+                    <p>
+                        Learning Progress
+                    </p>
+
+                    <h3 id="learningProgress">
+                        0%
+                    </h3>
+
+                    <span>
+                        Learning progress
+                    </span>
+
                 </div>
 
             </div>
 
+
+
+            <!-- Quizzes -->
 
             <div class="stat-card">
 
@@ -185,13 +246,26 @@
                 </div>
 
                 <div>
-                    <p>Quizzes Completed</p>
-                    <h3>8</h3>
-                    <span>12 total quizzes</span>
+
+                    <p>
+                        Quizzes Completed
+                    </p>
+
+                    <h3 id="quizzesCompleted">
+                        0
+                    </h3>
+
+                    <span id="totalQuizzes">
+                        0 total quizzes
+                    </span>
+
                 </div>
 
             </div>
 
+
+
+            <!-- Skill Gaps -->
 
             <div class="stat-card">
 
@@ -200,14 +274,25 @@
                 </div>
 
                 <div>
-                    <p>Skill Gaps</p>
-                    <h3>3</h3>
-                    <span class="warning">Needs attention</span>
+
+                    <p>
+                        Skill Gaps
+                    </p>
+
+                    <h3 id="skillGaps">
+                        0
+                    </h3>
+
+                    <span class="warning">
+                        Needs attention
+                    </span>
+
                 </div>
 
             </div>
 
         </section>
+
 
 
         <!-- Main Dashboard Grid -->
@@ -222,9 +307,17 @@
                 <div class="card-header">
 
                     <div>
-                        <h3>Competency Overview</h3>
-                        <p>Your current competency performance</p>
+
+                        <h3>
+                            Competency Overview
+                        </h3>
+
+                        <p>
+                            Your current competency performance
+                        </p>
+
                     </div>
+
 
                     <a href="competencies.html">
                         View All
@@ -233,66 +326,16 @@
                 </div>
 
 
-                <div class="competency-list">
+                <div
+                    class="competency-list"
+                    id="competencyList">
 
-                    <div class="competency-item">
-
-                        <div class="competency-info">
-                            <span>Data Analysis</span>
-                            <strong>85%</strong>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 85%;"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="competency-item">
-
-                        <div class="competency-info">
-                            <span>Statistics</span>
-                            <strong>82%</strong>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 82%;"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="competency-item">
-
-                        <div class="competency-info">
-                            <span>Communication</span>
-                            <strong>55%</strong>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 55%;"></div>
-                        </div>
-
-                    </div>
-
-
-                    <div class="competency-item">
-
-                        <div class="competency-info">
-                            <span>Data Quality</span>
-                            <strong>48%</strong>
-                        </div>
-
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 48%;"></div>
-                        </div>
-
-                    </div>
+                    <!-- Backend competencies -->
 
                 </div>
 
             </div>
+
 
 
             <!-- Learning Progress -->
@@ -302,9 +345,17 @@
                 <div class="card-header">
 
                     <div>
-                        <h3>Learning Progress</h3>
-                        <p>Your course completion</p>
+
+                        <h3>
+                            Learning Progress
+                        </h3>
+
+                        <p>
+                            Your learning progress
+                        </p>
+
                     </div>
+
 
                     <a href="materials.html">
                         View Materials
@@ -315,11 +366,19 @@
 
                 <div class="learning-progress">
 
+
                     <div class="progress-circle">
 
                         <div class="circle-content">
-                            <strong>65%</strong>
-                            <span>Completed</span>
+
+                            <strong id="progressCircleValue">
+                                0%
+                            </strong>
+
+                            <span>
+                                Completed
+                            </span>
+
                         </div>
 
                     </div>
@@ -328,18 +387,41 @@
                     <div class="learning-details">
 
                         <div>
-                            <span>Completed</span>
-                            <strong>6 Courses</strong>
+
+                            <span>
+                                Completed
+                            </span>
+
+                            <strong id="completedCourses">
+                                0
+                            </strong>
+
                         </div>
 
-                        <div>
-                            <span>In Progress</span>
-                            <strong>3 Courses</strong>
-                        </div>
 
                         <div>
-                            <span>Remaining</span>
-                            <strong>3 Courses</strong>
+
+                            <span>
+                                In Progress
+                            </span>
+
+                            <strong id="inProgressCourses">
+                                0
+                            </strong>
+
+                        </div>
+
+
+                        <div>
+
+                            <span>
+                                Remaining
+                            </span>
+
+                            <strong id="remainingCourses">
+                                0
+                            </strong>
+
                         </div>
 
                     </div>
@@ -349,6 +431,7 @@
             </div>
 
         </section>
+
 
 
         <!-- Bottom Section -->
@@ -363,59 +446,30 @@
                 <div class="card-header">
 
                     <div>
-                        <h3>Skill Gaps</h3>
-                        <p>Areas that need improvement</p>
+
+                        <h3>
+                            Skill Gaps
+                        </h3>
+
+                        <p>
+                            Areas that need improvement
+                        </p>
+
                     </div>
 
                 </div>
 
 
-                <div class="skill-gap-list">
+                <div
+                    class="skill-gap-list"
+                    id="skillGapList">
 
-                    <div class="skill-gap">
-
-                        <div class="gap-content">
-                            <strong>Data Quality</strong>
-                            <span>Current score: 48%</span>
-                        </div>
-
-                        <button>
-                            Improve
-                        </button>
-
-                    </div>
-
-
-                    <div class="skill-gap">
-
-                        <div class="gap-content">
-                            <strong>Communication</strong>
-                            <span>Current score: 55%</span>
-                        </div>
-
-                        <button>
-                            Improve
-                        </button>
-
-                    </div>
-
-
-                    <div class="skill-gap">
-
-                        <div class="gap-content">
-                            <strong>Data Management</strong>
-                            <span>Current score: 58%</span>
-                        </div>
-
-                        <button>
-                            Improve
-                        </button>
-
-                    </div>
+                    <!-- Backend skill gaps -->
 
                 </div>
 
             </div>
+
 
 
             <!-- Recommendations -->
@@ -425,9 +479,17 @@
                 <div class="card-header">
 
                     <div>
-                        <h3>Recommended For You</h3>
-                        <p>Based on your competency gaps</p>
+
+                        <h3>
+                            Recommended For You
+                        </h3>
+
+                        <p>
+                            Based on your competency gaps
+                        </p>
+
                     </div>
+
 
                     <a href="recommendations.html">
                         View All
@@ -436,56 +498,11 @@
                 </div>
 
 
-                <div class="recommendation-list">
+                <div
+                    class="recommendation-list"
+                    id="recommendationList">
 
-                    <div class="recommendation">
-
-                        <div class="recommendation-icon">
-                            📚
-                        </div>
-
-                        <div class="recommendation-content">
-
-                            <strong>
-                                Data Quality Fundamentals
-                            </strong>
-
-                            <span>
-                                Improve your Data Quality skills
-                            </span>
-
-                        </div>
-
-                        <button>
-                            Start
-                        </button>
-
-                    </div>
-
-
-                    <div class="recommendation">
-
-                        <div class="recommendation-icon">
-                            📊
-                        </div>
-
-                        <div class="recommendation-content">
-
-                            <strong>
-                                Advanced Data Management
-                            </strong>
-
-                            <span>
-                                Recommended for your role
-                            </span>
-
-                        </div>
-
-                        <button>
-                            Start
-                        </button>
-
-                    </div>
+                    <!-- Backend recommendations -->
 
                 </div>
 
@@ -493,13 +510,20 @@
 
         </section>
 
+
     </main>
 
 </div>
 
 
+
+<!-- JavaScript -->
+
+<script src="../js/api.js"></script>
+
 <script src="../js/dashboard.js"></script>
-```
+
 
 </body>
+
 </html>

@@ -6,84 +6,180 @@ document.addEventListener("DOMContentLoaded", function () {
     const statusFilter =
         document.getElementById("statusFilter");
 
-    const materialCards =
-        document.querySelectorAll(".material-card");
+    const materialsGrid =
+        document.getElementById("materialsGrid");
 
 
-    // Filter Materials
+    async function loadMaterials() {
 
-    function filterMaterials() {
+        const token =
+            localStorage.getItem("access_token");
 
-        const selectedCategory =
-            categoryFilter.value;
-
-        const selectedStatus =
-            statusFilter.value;
-
-
-        materialCards.forEach(function (card) {
-
-            const cardCategory =
-                card.dataset.category;
-
-            const cardStatus =
-                card.dataset.status;
+        if (!token) {
+            window.location.href = "../index.html";
+            return;
+        }
 
 
-            const categoryMatch =
-                selectedCategory === "all" ||
-                selectedCategory === cardCategory;
+        try {
+
+            const data = await apiRequest("/materials/", {
+                method: "GET",
+                headers: {
+                    "Authorization": `Bearer ${token}`
+                }
+            });
 
 
-            const statusMatch =
-                selectedStatus === "all" ||
-                selectedStatus === cardStatus;
+            console.log("Materials data:", data);
 
 
-            if (categoryMatch && statusMatch) {
+            const materials =
+                data.materials || [];
 
-                card.style.display = "block";
 
-            } else {
+            materialsGrid.innerHTML = "";
 
-                card.style.display = "none";
 
-            }
+            materials.forEach(function (material) {
 
-        });
+                const initials =
+                    material.title
+                        .split(" ")
+                        .map(function (word) {
+                            return word.charAt(0);
+                        })
+                        .join("")
+                        .substring(0, 2)
+                        .toUpperCase();
+
+
+                const card =
+                    document.createElement("div");
+
+                card.className =
+                    "material-card";
+
+
+                card.innerHTML = `
+
+                    <div class="material-image">
+                        ${initials}
+                    </div>
+
+                    <div class="material-content">
+
+                        <div class="material-top">
+
+                            <span class="category">
+                                ${material.material_type}
+                            </span>
+
+                            <span class="status new-status">
+                                Available
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            ${material.title}
+                        </h3>
+
+                        <p>
+                            ${material.description}
+                        </p>
+
+                        <div class="material-meta">
+
+                            <span>
+                                📚 Learning Material
+                            </span>
+
+                            <span>
+                                ${material.material_type}
+                            </span>
+
+                        </div>
+
+                        <button
+                            class="continue-btn"
+                            data-id="${material.id}">
+                            Start Learning
+                        </button>
+
+                    </div>
+
+                `;
+
+
+                materialsGrid.appendChild(card);
+
+            });
+
+
+            // Learning Buttons
+
+            const learningButtons =
+                document.querySelectorAll(".continue-btn");
+
+
+            learningButtons.forEach(function (button) {
+
+                button.addEventListener("click", function () {
+
+                    const materialId =
+                        button.dataset.id;
+
+
+                    localStorage.setItem(
+                        "selected_material_id",
+                        materialId
+                    );
+
+
+                    alert(
+                        `Opening material ${materialId}`
+                    );
+
+                });
+
+            });
+
+
+        } catch (error) {
+
+            console.error(
+                "Materials loading failed:",
+                error
+            );
+
+        }
 
     }
 
 
+    // Filters
+
     categoryFilter.addEventListener(
         "change",
-        filterMaterials
+        function () {
+            console.log(
+                "Category selected:",
+                categoryFilter.value
+            );
+        }
     );
+
 
     statusFilter.addEventListener(
         "change",
-        filterMaterials
-    );
-
-
-    // Learning Buttons
-
-    const learningButtons =
-        document.querySelectorAll(".continue-btn");
-
-
-    learningButtons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            alert(
-                "Learning material will open here.\n\n" +
-                "Backend integration will be added later."
+        function () {
+            console.log(
+                "Status selected:",
+                statusFilter.value
             );
-
-        });
-
-    });
+        }
+    );
 
 
     // Logout
@@ -91,19 +187,39 @@ document.addEventListener("DOMContentLoaded", function () {
     const logoutBtn =
         document.getElementById("logoutBtn");
 
-    logoutBtn.addEventListener("click", function (event) {
 
-        event.preventDefault();
+    if (logoutBtn) {
 
-        const confirmLogout =
-            confirm("Are you sure you want to logout?");
+        logoutBtn.addEventListener(
+            "click",
+            function (event) {
 
-        if (confirmLogout) {
+                event.preventDefault();
 
-            window.location.href = "../index.html";
 
-        }
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to logout?"
+                    );
 
-    });
+
+                if (confirmLogout) {
+
+                    localStorage.removeItem(
+                        "access_token"
+                    );
+
+                    window.location.href =
+                        "../index.html";
+
+                }
+
+            }
+        );
+
+    }
+
+
+    loadMaterials();
 
 });

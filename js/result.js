@@ -1,101 +1,168 @@
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", async function () {
 
-    /* Get Quiz Result */
+    const token =
+        localStorage.getItem("access_token");
 
-    let score =
-        Number(localStorage.getItem("quizScore"));
-
-    let correct =
-        Number(localStorage.getItem("quizCorrect"));
-
-    let total =
-        Number(localStorage.getItem("quizTotal"));
-
-
-    /* Default Dummy Data */
-
-    if (!score) {
-        score = 80;
+    if (!token) {
+        window.location.href = "../index.html";
+        return;
     }
 
-    if (!total) {
-        total = 10;
-    }
 
-    if (!correct) {
-        correct = Math.round(
-            (score / 100) * total
+    // Get result returned by backend
+
+    const storedResult =
+        localStorage.getItem("quiz_result");
+
+
+    if (!storedResult) {
+
+        alert(
+            "Quiz result not found."
         );
+
+        window.location.href =
+            "quizzes.html";
+
+        return;
     }
 
+
+    const result =
+        JSON.parse(storedResult);
+
+
+    console.log(
+        "Quiz result data:",
+        result
+    );
+
+
+    // Backend result
+
+    const score =
+        Math.round(
+            Number(result.percentage || 0)
+        );
+
+    const correct =
+        Number(result.score || 0);
+
+    const total =
+        Number(result.total || 0);
 
     const unanswered = 0;
 
     const wrong =
-        total - correct - unanswered;
+        Math.max(
+            total - correct - unanswered,
+            0
+        );
 
 
-    /* Elements */
+    // Elements
 
     const scorePercentage =
-        document.getElementById("scorePercentage");
+        document.getElementById(
+            "scorePercentage"
+        );
 
     const correctAnswers =
-        document.getElementById("correctAnswers");
+        document.getElementById(
+            "correctAnswers"
+        );
 
     const wrongAnswers =
-        document.getElementById("wrongAnswers");
+        document.getElementById(
+            "wrongAnswers"
+        );
 
     const unansweredAnswers =
-        document.getElementById("unansweredAnswers");
+        document.getElementById(
+            "unansweredAnswers"
+        );
 
     const totalQuestions =
-        document.getElementById("totalQuestions");
+        document.getElementById(
+            "totalQuestions"
+        );
 
     const analysisScore =
-        document.getElementById("analysisScore");
+        document.getElementById(
+            "analysisScore"
+        );
 
     const analysisProgress =
-        document.getElementById("analysisProgress");
+        document.getElementById(
+            "analysisProgress"
+        );
 
     const resultTitle =
-        document.getElementById("resultTitle");
+        document.getElementById(
+            "resultTitle"
+        );
 
     const resultMessage =
-        document.getElementById("resultMessage");
+        document.getElementById(
+            "resultMessage"
+        );
 
     const analysisMessage =
-        document.getElementById("analysisMessage");
+        document.getElementById(
+            "analysisMessage"
+        );
 
     const resultIcon =
-        document.getElementById("resultIcon");
+        document.getElementById(
+            "resultIcon"
+        );
 
 
-    /* Update Score */
+    // Update result
 
-    scorePercentage.textContent =
-        `${score}%`;
-
-    correctAnswers.textContent =
-        correct;
-
-    wrongAnswers.textContent =
-        wrong;
-
-    unansweredAnswers.textContent =
-        unanswered;
-
-    totalQuestions.textContent =
-        total;
-
-    analysisScore.textContent =
-        `${score}%`;
-
-    analysisProgress.style.width =
-        `${score}%`;
+    if (scorePercentage) {
+        scorePercentage.textContent =
+            `${score}%`;
+    }
 
 
-    /* Result Message */
+    if (correctAnswers) {
+        correctAnswers.textContent =
+            correct;
+    }
+
+
+    if (wrongAnswers) {
+        wrongAnswers.textContent =
+            wrong;
+    }
+
+
+    if (unansweredAnswers) {
+        unansweredAnswers.textContent =
+            unanswered;
+    }
+
+
+    if (totalQuestions) {
+        totalQuestions.textContent =
+            total;
+    }
+
+
+    if (analysisScore) {
+        analysisScore.textContent =
+            `${score}%`;
+    }
+
+
+    if (analysisProgress) {
+        analysisProgress.style.width =
+            `${score}%`;
+    }
+
+
+    // Result message
 
     if (score >= 80) {
 
@@ -107,6 +174,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         resultIcon.textContent =
             "✓";
+
 
         analysisMessage.innerHTML = `
             <strong>Excellent performance!</strong>
@@ -130,6 +198,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultIcon.textContent =
             "✓";
 
+
         analysisMessage.innerHTML = `
             <strong>Good performance!</strong>
 
@@ -152,6 +221,7 @@ document.addEventListener("DOMContentLoaded", function () {
         resultIcon.textContent =
             "!";
 
+
         analysisMessage.innerHTML = `
             <strong>More practice recommended.</strong>
 
@@ -160,66 +230,183 @@ document.addEventListener("DOMContentLoaded", function () {
                 again to improve your score.
             </p>
         `;
-
     }
 
 
-    /* Dashboard */
+    // Load quiz title from backend
 
-    document
-        .getElementById("dashboardBtn")
-        .addEventListener("click", function () {
-
-            window.location.href =
-                "dashboard.html";
-
-        });
+    const quizId =
+        result.quiz_id ||
+        localStorage.getItem(
+            "selected_quiz_id"
+        );
 
 
-    /* Quizzes */
+    if (quizId) {
 
-    document
-        .getElementById("quizzesBtn")
-        .addEventListener("click", function () {
+        try {
 
-            window.location.href =
-                "quizzes.html";
-
-        });
-
-
-    /* Retake */
-
-    document
-        .getElementById("retakeBtn")
-        .addEventListener("click", function () {
-
-            window.location.href =
-                "quiz-attempt.html";
-
-        });
+            const quizData =
+                await apiRequest(
+                    `/quizzes/${quizId}`,
+                    {
+                        method: "GET",
+                        headers: {
+                            "Authorization":
+                                `Bearer ${token}`
+                        }
+                    }
+                );
 
 
-    /* Logout */
+            console.log(
+                "Result quiz data:",
+                quizData
+            );
 
-    document
-        .getElementById("logoutBtn")
-        .addEventListener("click", function (event) {
 
-            event.preventDefault();
+            if (quizData.quiz) {
 
-            const confirmLogout =
-                confirm("Are you sure you want to logout?");
+                const quizTitle =
+                    document.querySelector(
+                        ".result-card h2, .result-card h3"
+                    );
 
-            if (confirmLogout) {
 
-                localStorage.clear();
+                // Update known quiz title elements
 
-                window.location.href =
-                    "../index.html";
+                const possibleTitles =
+                    document.querySelectorAll(
+                        "h2, h3"
+                    );
 
+
+                possibleTitles.forEach(
+                    function (element) {
+
+                        if (
+                            element.textContent.trim() ===
+                            "Data Quality Fundamentals"
+                        ) {
+
+                            element.textContent =
+                                quizData.quiz.title;
+                        }
+
+                    }
+                );
             }
 
-        });
+
+        } catch (error) {
+
+            console.error(
+                "Quiz title loading failed:",
+                error
+            );
+        }
+    }
+
+
+    // Dashboard button
+
+    const dashboardBtn =
+        document.getElementById(
+            "dashboardBtn"
+        );
+
+
+    if (dashboardBtn) {
+
+        dashboardBtn.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "dashboard.html";
+
+            }
+        );
+    }
+
+
+    // Quizzes button
+
+    const quizzesBtn =
+        document.getElementById(
+            "quizzesBtn"
+        );
+
+
+    if (quizzesBtn) {
+
+        quizzesBtn.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "quizzes.html";
+
+            }
+        );
+    }
+
+
+    // Retake button
+
+    const retakeBtn =
+        document.getElementById(
+            "retakeBtn"
+        );
+
+
+    if (retakeBtn) {
+
+        retakeBtn.addEventListener(
+            "click",
+            function () {
+
+                window.location.href =
+                    "quiz-attempt.html";
+
+            }
+        );
+    }
+
+
+    // Logout
+
+    const logoutBtn =
+        document.getElementById(
+            "logoutBtn"
+        );
+
+
+    if (logoutBtn) {
+
+        logoutBtn.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to logout?"
+                    );
+
+
+                if (confirmLogout) {
+
+                    localStorage.clear();
+
+                    window.location.href =
+                        "../index.html";
+                }
+
+            }
+        );
+    }
 
 });
